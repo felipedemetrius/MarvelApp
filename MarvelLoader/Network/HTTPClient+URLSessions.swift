@@ -29,7 +29,7 @@ public final class URLSessionHTTPClient: HTTPClient {
         let task = session.dataTask(with: url) { data, response, error in
             completion(Result {
                 if let error = error {
-                    print(error.localizedDescription)
+                    Logger.shared.log(error: error)
                     throw error
                 } else if let data = data, let response = response as? HTTPURLResponse {
                     Logger.shared.log(data: data, response: response)

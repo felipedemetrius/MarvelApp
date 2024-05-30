@@ -20,4 +20,8 @@ class Logger {
         print("\n[RESPONSE]: " + response.debugDescription)
         print("[RESPONSE DATA]: \(data.toString)\n")
     }
+    
+    func log(error: Error) {
+        print("\n[ERROR]: " + error.localizedDescription)
+    }
 }
