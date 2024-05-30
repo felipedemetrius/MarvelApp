@@ -13,4 +13,9 @@ public struct Thumbnail: Hashable, Equatable {
         self.path = path
         self.thumbnailExtension = thumbnailExtension
     }
+    
+    init(response: ThumbnailResponse?) {
+        self.path = response?.path.orEmpty ?? ""
+        self.thumbnailExtension = response?.extension.orEmpty ?? ""
+    }
 }

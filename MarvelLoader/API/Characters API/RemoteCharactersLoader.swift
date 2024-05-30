@@ -8,7 +8,7 @@
 import Combine
 
 public protocol RemoteCharactersLoader {
-    func get(page: Int) -> AnyPublisher<[Character], Error>
+    func get(page: Int) -> AnyPublisher<[Character], NetworkErrorCases>
 }
 
 public final class RemoteCharactersLoaderImpl: RemoteCharactersLoader {
@@ -19,13 +19,14 @@ public final class RemoteCharactersLoaderImpl: RemoteCharactersLoader {
         self.httpClient = httpClient
     }
     
-    public func get(page: Int = 0) -> AnyPublisher<[Character], any Error> {
+    public func get(page: Int = 0) -> AnyPublisher<[Character], NetworkErrorCases> {
         let url = CharactersEndpoint.get(page: page)
             .url(path: .characters)
         
         return httpClient
             .getPublisher(url: url)
             .tryMap(CharactersMapper.map)
+            .mapNetworkError()
             .eraseToAnyPublisher()
     }
 }

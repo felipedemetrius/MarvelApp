@@ -23,4 +23,13 @@ public struct Character: Hashable, Equatable {
         self.resourceURI = resourceURI
         self.thumbnail = Thumbnail(path: thumbnailPath, thumbnailExtension: thumbnailExtension)
     }
+    
+    init(response: CharacterResponse) {
+        self.id = response.id.orZero
+        self.name = response.name.orEmpty
+        self.description = response.description.orEmpty
+        self.modified = response.modified.orEmpty
+        self.resourceURI = response.resourceURI.orEmpty
+        self.thumbnail = Thumbnail(response: response.thumbnail)
+    }
 }

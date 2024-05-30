@@ -13,7 +13,7 @@ enum CharactersEndpoint {
     func url(path: Endpoints.Paths) -> URLRequest {
         switch self {
         case .get(let page):
-            let url = URLComponents.makeURL(path: .characters, page: page)
+            let url = URLComponents.makeURL(path: path, page: page)
             let request = URLRequest(url: url)
             return request
         }

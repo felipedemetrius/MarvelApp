@@ -11,7 +11,7 @@ import XCTest
 final class HTTPClientRemoteCharactersEnd2EndTests: XCTestCase {
 
     func test_endToEndTestServerGETCharsResult_matchesFixedTestAccountData() {
-        switch getCharactersResult() {
+        switch getCharactersResult(path: .characters) {
         case let .success(chars)?:
             XCTAssertEqual(chars.count, 10, "Expected 10 chars in the test account")
             XCTAssertEqual(chars[0], expectedChar(at: 0))
@@ -33,25 +33,53 @@ final class HTTPClientRemoteCharactersEnd2EndTests: XCTestCase {
         }
     }
 
+    func test_endToEndTestServerGETCharsResult_ErrorServer() {
+        switch getCharactersResult(path: .invalidPath) {
+        case .success?:
+            XCTFail("Expected failure feed result, got characters instead")
+
+        case let .failure(error)?:
+            switch error {
+            case .error(let error):
+                XCTAssertNotNil(error)
+            case .unexpectedValuesRepresentation:
+                XCTFail("Expected failture with error, got no unexpectedValuesRepresentation instead")
+            case .invalidData:
+                XCTFail("Expected failture with error, got no invalidData instead")
+            }
+            
+        default:
+            XCTFail("Expected successful feed result, got no result instead")
+        }
+    }
+
 
     // MARK: - Helpers
     
-    private var charsServerURL: URLRequest {
+    private func charsServerURL(path: Endpoints.Paths) -> URLRequest {
         return  CharactersEndpoint.get(page: 0)
-            .url(path: .characters)
+            .url(path: path)
     }
 
-    private func getCharactersResult(file: StaticString = #filePath, line: UInt = #line) -> Swift.Result<[Character], Error>? {
+    private func getCharactersResult(path: Endpoints.Paths, file: StaticString = #filePath, line: UInt = #line) -> Swift.Result<[Character], NetworkErrorCases>? {
         let client = ephemeralClient()
         let exp = expectation(description: "Wait for load completion")
         
-        var receivedResult: Swift.Result<[Character], Error>?
-        client.load(from: charsServerURL) { result in
-            receivedResult = result.flatMap { (data, response) in
+        var receivedResult: Swift.Result<[Character], NetworkErrorCases>?
+        client.load(from: charsServerURL(path: path)) { result in
+            receivedResult = result
+                .mapError({ error -> NetworkErrorCases in
+                switch (error) {
+                case let url_error as NetworkErrorCases:
+                    return url_error
+                default:
+                    return NetworkErrorCases.unexpectedValuesRepresentation
+                }})
+                .flatMap { (data, response) in
                 do {
                     return .success(try CharactersMapper.map(data, from: response))
                 } catch {
-                    return .failure(error)
+                    return .failure(error as! NetworkErrorCases)
                 }
             }
             exp.fulfill()

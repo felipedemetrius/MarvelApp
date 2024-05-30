@@ -13,6 +13,11 @@
 		02652F812C08B95F00A8AB21 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02652F802C08B95F00A8AB21 /* Data+Extension.swift */; };
 		02652F842C08BC1000A8AB21 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02652F832C08BC1000A8AB21 /* Logger.swift */; };
 		02652F862C08C16E00A8AB21 /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02652F852C08C16E00A8AB21 /* Thumbnail.swift */; };
+		02652F8B2C08E1B800A8AB21 /* RootResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02652F8A2C08E1B800A8AB21 /* RootResponse.swift */; };
+		02652F8D2C08E1FD00A8AB21 /* CharacterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02652F8C2C08E1FD00A8AB21 /* CharacterResponse.swift */; };
+		02652F8F2C08E21C00A8AB21 /* ThumbnailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02652F8E2C08E21C00A8AB21 /* ThumbnailResponse.swift */; };
+		02652F912C08E44100A8AB21 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02652F902C08E44100A8AB21 /* NetworkError.swift */; };
+		02652F932C0903E600A8AB21 /* Publisher+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02652F922C0903E600A8AB21 /* Publisher+Extension.swift */; };
 		02BFD3F42C0536E400B9234B /* MarvelLoader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02BFD3EB2C0536E300B9234B /* MarvelLoader.framework */; };
 		02BFD3F92C0536E400B9234B /* HTTPClientRemoteCharactersEnd2EndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BFD3F82C0536E400B9234B /* HTTPClientRemoteCharactersEnd2EndTests.swift */; };
 		02BFD3FA2C0536E400B9234B /* MarvelLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 02BFD3EE2C0536E300B9234B /* MarvelLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -54,6 +59,11 @@
 		02652F802C08B95F00A8AB21 /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
 		02652F832C08BC1000A8AB21 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		02652F852C08C16E00A8AB21 /* Thumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thumbnail.swift; sourceTree = "<group>"; };
+		02652F8A2C08E1B800A8AB21 /* RootResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootResponse.swift; sourceTree = "<group>"; };
+		02652F8C2C08E1FD00A8AB21 /* CharacterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterResponse.swift; sourceTree = "<group>"; };
+		02652F8E2C08E21C00A8AB21 /* ThumbnailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailResponse.swift; sourceTree = "<group>"; };
+		02652F902C08E44100A8AB21 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		02652F922C0903E600A8AB21 /* Publisher+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Extension.swift"; sourceTree = "<group>"; };
 		02BFD3EB2C0536E300B9234B /* MarvelLoader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MarvelLoader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		02BFD3EE2C0536E300B9234B /* MarvelLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarvelLoader.h; sourceTree = "<group>"; };
 		02BFD3F32C0536E400B9234B /* MarvelLoaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvelLoaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +124,16 @@
 			path = Logger;
 			sourceTree = "<group>";
 		};
+		02652F892C08E19D00A8AB21 /* Response Model */ = {
+			isa = PBXGroup;
+			children = (
+				02652F8A2C08E1B800A8AB21 /* RootResponse.swift */,
+				02652F8C2C08E1FD00A8AB21 /* CharacterResponse.swift */,
+				02652F8E2C08E21C00A8AB21 /* ThumbnailResponse.swift */,
+			);
+			path = "Response Model";
+			sourceTree = "<group>";
+		};
 		02BFD3E12C0536E300B9234B = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +182,7 @@
 				02BFD4042C0537BB00B9234B /* HTTPClient.swift */,
 				02BFD4062C053AE800B9234B /* HTTPClient+URLSessions.swift */,
 				02BFD41B2C05458F00B9234B /* HTTPClient+Extension.swift */,
+				02652F902C08E44100A8AB21 /* NetworkError.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -180,6 +201,7 @@
 		02BFD4092C053BD200B9234B /* Characters API */ = {
 			isa = PBXGroup;
 			children = (
+				02652F892C08E19D00A8AB21 /* Response Model */,
 				02BFD40A2C053C0600B9234B /* Domain Model */,
 				02BFD4102C053F7C00B9234B /* CharactersMapper.swift */,
 				02BFD4122C0541C800B9234B /* CharactersEndpoint.swift */,
@@ -204,6 +226,7 @@
 				02BFD4162C05439600B9234B /* Int+Extension.swift */,
 				02652F7E2C08B45200A8AB21 /* URLComponents+Extension.swift */,
 				02652F802C08B95F00A8AB21 /* Data+Extension.swift */,
+				02652F922C0903E600A8AB21 /* Publisher+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -387,11 +410,16 @@
 				02BFD4192C0543BB00B9234B /* Encrypt.swift in Sources */,
 				02652F7F2C08B45200A8AB21 /* URLComponents+Extension.swift in Sources */,
 				02BFD4132C0541C800B9234B /* CharactersEndpoint.swift in Sources */,
+				02652F8B2C08E1B800A8AB21 /* RootResponse.swift in Sources */,
+				02652F912C08E44100A8AB21 /* NetworkError.swift in Sources */,
+				02652F8F2C08E21C00A8AB21 /* ThumbnailResponse.swift in Sources */,
 				02BFD4052C0537BB00B9234B /* HTTPClient.swift in Sources */,
 				02BFD4072C053AE800B9234B /* HTTPClient+URLSessions.swift in Sources */,
 				02652F842C08BC1000A8AB21 /* Logger.swift in Sources */,
 				02BFD4152C05437000B9234B /* Authorization.swift in Sources */,
 				02BFD41E2C0546ED00B9234B /* RemoteCharactersLoader.swift in Sources */,
+				02652F932C0903E600A8AB21 /* Publisher+Extension.swift in Sources */,
+				02652F8D2C08E1FD00A8AB21 /* CharacterResponse.swift in Sources */,
 				02652F7D2C08B32100A8AB21 /* Endpoints.swift in Sources */,
 				02652F862C08C16E00A8AB21 /* Thumbnail.swift in Sources */,
 				02BFD40F2C053E9300B9234B /* HTTPURLResponse+Extension.swift in Sources */,

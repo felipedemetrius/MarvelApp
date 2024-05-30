@@ -12,5 +12,6 @@ struct Endpoints {
 
     enum Paths: String {
         case characters = "/v1/public/characters"
+        case invalidPath = "/v1/public/characterssss"
     }
 }
