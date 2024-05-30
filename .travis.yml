@@ -1,0 +1,4 @@
+s: osx
+osx_image: xcode15.4
+language swift
+script: xcodebuild clean build test -project MarvelApp.xcodeproj -scheme "MarvelLoader" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
