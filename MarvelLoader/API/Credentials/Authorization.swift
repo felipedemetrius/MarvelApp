@@ -10,7 +10,6 @@ import Foundation
 struct Authorization {
     static let PublicKey = "42450c7c30ed07da81c79ddcb929343a"
     static let PrivateKey = "92b20d8b768c02a6be7c48ecb568aa60c623e7f7"
-    static let baseURL = URL(string: "https://gateway.marvel.com")!
     
     static func credentials() -> [String: Any] {
         let randonTimeStamp = Int.random(min: 100, max: 300)

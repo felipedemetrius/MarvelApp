@@ -19,7 +19,7 @@ class HTTPClientStub: HTTPClient {
         self.stub = stub
     }
     
-    func get(from url: URLRequest, completion: @escaping (HTTPClient.Result) -> Void) -> HTTPClientTask {
+    func load(from url: URLRequest, completion: @escaping (HTTPClient.Result) -> Void) -> HTTPClientTask {
         completion(stub(url))
         return Task()
     }

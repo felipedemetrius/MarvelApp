@@ -21,7 +21,7 @@ public final class RemoteCharactersLoaderImpl: RemoteCharactersLoader {
     
     public func get(page: Int = 0) -> AnyPublisher<[Character], any Error> {
         let url = CharactersEndpoint.get(page: page)
-            .url(baseURL: Authorization.baseURL)
+            .url(path: .characters)
         
         return httpClient
             .getPublisher(url: url)

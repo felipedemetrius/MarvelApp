@@ -11,13 +11,11 @@ import XCTest
 class CharactersEndpointTests: XCTestCase {
     
     func test_feed_endpointURL() {
-        let baseURL = URL(string: "http://base-url.com")!
-        
         let received = CharactersEndpoint.get(page: 0)
-            .url(baseURL: baseURL)
+            .url(path: .characters)
         
-        XCTAssertEqual(received.url!.scheme, "http", "scheme")
-        XCTAssertEqual(received.url!.host, "base-url.com", "host")
-        XCTAssertEqual(received.url!.path, "/v1/public/characters", "path")
+        XCTAssertEqual(received.url!.scheme, Endpoints.baseURL.scheme, "scheme")
+        XCTAssertEqual(received.url!.host, Endpoints.baseURL.host, "host")
+        XCTAssertEqual(received.url!.path, Endpoints.Paths.characters.rawValue, "path")
     }
 }

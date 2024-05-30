@@ -38,7 +38,7 @@ final class HTTPClientRemoteCharactersEnd2EndTests: XCTestCase {
     
     private var charsServerURL: URLRequest {
         return  CharactersEndpoint.get(page: 0)
-            .url(baseURL: URL(string: "https://gateway.marvel.com")!)
+            .url(path: .characters)
     }
 
     private func getCharactersResult(file: StaticString = #filePath, line: UInt = #line) -> Swift.Result<[Character], Error>? {
@@ -46,7 +46,7 @@ final class HTTPClientRemoteCharactersEnd2EndTests: XCTestCase {
         let exp = expectation(description: "Wait for load completion")
         
         var receivedResult: Swift.Result<[Character], Error>?
-        client.get(from: charsServerURL) { result in
+        client.load(from: charsServerURL) { result in
             receivedResult = result.flatMap { (data, response) in
                 do {
                     return .success(try CharactersMapper.map(data, from: response))

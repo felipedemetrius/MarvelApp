@@ -7,26 +7,14 @@
 
 import Foundation
 
-public enum CharactersEndpoint {
+enum CharactersEndpoint {
     case get(page: Int)
     
-    public func url(baseURL: URL) -> URLRequest {
+    func url(path: Endpoints.Paths) -> URLRequest {
         switch self {
         case .get(let page):
-            var components = URLComponents()
-            components.scheme = baseURL.scheme
-            components.host = baseURL.host
-            components.path = baseURL.path + "/v1/public/characters"
-            var authorization = Authorization.credentials()
-                .map(
-                    { URLQueryItem(name: $0.key, value: $0.value as? String) }
-                ).compactMap { $0 }
-            
-            authorization.append(URLQueryItem(name: "offset", value: page.description))
-            
-            components.queryItems = authorization
-            
-            let request = URLRequest(url: components.url!)
+            let url = URLComponents.makeURL(path: .characters, page: page)
+            let request = URLRequest(url: url)
             return request
         }
     }

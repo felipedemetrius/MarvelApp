@@ -15,7 +15,7 @@ public extension HTTPClient {
         
         return Deferred {
             Future { completion in
-                task = self.get(from: url, completion: completion)
+                task = self.load(from: url, completion: completion)
             }
         }
         .handleEvents(receiveCancel: { task?.cancel() })
