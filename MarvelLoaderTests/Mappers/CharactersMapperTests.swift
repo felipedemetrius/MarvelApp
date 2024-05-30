@@ -53,7 +53,7 @@ class CharactersMapperTests: XCTestCase {
     
     private func makeItem(id: Int, name: String, description: String, modified: String, resourceURI: String, thumbnail: Thumbnail) -> (model: Character, json: [String: Any]) {
         
-        let item = Character(id: id, name: name, description: description, modified: modified, resourceURI: resourceURI, thumbnail: thumbnail)
+        let item = Character(id: id, name: name, description: description, modified: modified, resourceURI: resourceURI, thumbnailPath: thumbnail.path, thumbnailExtension: thumbnail.thumbnailExtension)
         
         let json2 = [
             "path": thumbnail.path,

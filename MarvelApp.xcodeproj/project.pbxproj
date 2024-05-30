@@ -12,6 +12,7 @@
 		02652F7F2C08B45200A8AB21 /* URLComponents+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02652F7E2C08B45200A8AB21 /* URLComponents+Extension.swift */; };
 		02652F812C08B95F00A8AB21 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02652F802C08B95F00A8AB21 /* Data+Extension.swift */; };
 		02652F842C08BC1000A8AB21 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02652F832C08BC1000A8AB21 /* Logger.swift */; };
+		02652F862C08C16E00A8AB21 /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02652F852C08C16E00A8AB21 /* Thumbnail.swift */; };
 		02BFD3F42C0536E400B9234B /* MarvelLoader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02BFD3EB2C0536E300B9234B /* MarvelLoader.framework */; };
 		02BFD3F92C0536E400B9234B /* HTTPClientRemoteCharactersEnd2EndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BFD3F82C0536E400B9234B /* HTTPClientRemoteCharactersEnd2EndTests.swift */; };
 		02BFD3FA2C0536E400B9234B /* MarvelLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 02BFD3EE2C0536E300B9234B /* MarvelLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -52,6 +53,7 @@
 		02652F7E2C08B45200A8AB21 /* URLComponents+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLComponents+Extension.swift"; sourceTree = "<group>"; };
 		02652F802C08B95F00A8AB21 /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
 		02652F832C08BC1000A8AB21 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		02652F852C08C16E00A8AB21 /* Thumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thumbnail.swift; sourceTree = "<group>"; };
 		02BFD3EB2C0536E300B9234B /* MarvelLoader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MarvelLoader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		02BFD3EE2C0536E300B9234B /* MarvelLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarvelLoader.h; sourceTree = "<group>"; };
 		02BFD3F32C0536E400B9234B /* MarvelLoaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvelLoaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -190,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				02BFD40B2C053C2600B9234B /* Character.swift */,
+				02652F852C08C16E00A8AB21 /* Thumbnail.swift */,
 			);
 			path = "Domain Model";
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 				02BFD4152C05437000B9234B /* Authorization.swift in Sources */,
 				02BFD41E2C0546ED00B9234B /* RemoteCharactersLoader.swift in Sources */,
 				02652F7D2C08B32100A8AB21 /* Endpoints.swift in Sources */,
+				02652F862C08C16E00A8AB21 /* Thumbnail.swift in Sources */,
 				02BFD40F2C053E9300B9234B /* HTTPURLResponse+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

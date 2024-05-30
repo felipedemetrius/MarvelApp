@@ -74,7 +74,8 @@ final class HTTPClientRemoteCharactersEnd2EndTests: XCTestCase {
             description: description(at: index),
             modified: modified(at: index),
             resourceURI: resourceURI(at: index),
-            thumbnail: thumbnail(at: index))
+            thumbnailPath: thumbnail(at: index).path,
+            thumbnailExtension: thumbnail(at: index).thumbnailExtension)
     }
     
     private func thumbnail(at index: Int) -> Thumbnail {

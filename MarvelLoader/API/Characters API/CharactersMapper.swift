@@ -32,8 +32,8 @@ public final class CharactersMapper {
                                          description: $0.description.orEmpty,
                                          modified: $0.modified.orEmpty,
                                          resourceURI: $0.resourceURI.orEmpty,
-                                         thumbnail: Thumbnail(path: $0.thumbnail?.path.orEmpty ?? "",
-                                                              thumbnailExtension: $0.thumbnail?.extension.orEmpty ?? ""))}
+                                         thumbnailPath: $0.thumbnail?.path ?? "",
+                                         thumbnailExtension: $0.thumbnail?.extension ?? "")}
         }
     }
     
