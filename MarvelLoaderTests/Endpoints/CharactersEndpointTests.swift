@@ -16,8 +16,8 @@ class CharactersEndpointTests: XCTestCase {
         let received = CharactersEndpoint.get(page: 0)
             .url(baseURL: baseURL)
         
-        XCTAssertEqual(received.scheme, "http", "scheme")
-        XCTAssertEqual(received.host, "base-url.com", "host")
-        XCTAssertEqual(received.path, "/v1/public/characters", "path")
+        XCTAssertEqual(received.url!.scheme, "http", "scheme")
+        XCTAssertEqual(received.url!.host, "base-url.com", "host")
+        XCTAssertEqual(received.url!.path, "/v1/public/characters", "path")
     }
 }

@@ -10,7 +10,7 @@ import Combine
 public extension HTTPClient {
     typealias Publisher = AnyPublisher<(Data, HTTPURLResponse), Error>
     
-    func getPublisher(url: URL) -> Publisher {
+    func getPublisher(url: URLRequest) -> Publisher {
         var task: HTTPClientTask?
         
         return Deferred {

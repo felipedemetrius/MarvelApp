@@ -60,9 +60,9 @@ class RemoteCharactersLoaderImplTests: XCTestCase {
     
     //MARK: - Helpers
     
-    private func response(for url: URL) -> (Data, HTTPURLResponse) {
-        let response = HTTPURLResponse(url: url, statusCode: 200, httpVersion: nil, headerFields: nil)!
-        return (makeData(for: url), response)
+    private func response(for url: URLRequest) -> (Data, HTTPURLResponse) {
+        let response = HTTPURLResponse(url: url.url!, statusCode: 200, httpVersion: nil, headerFields: nil)!
+        return (makeData(for: url.url!), response)
     }
 
     private func makeData(for url: URL) -> Data {
@@ -76,33 +76,12 @@ class RemoteCharactersLoaderImplTests: XCTestCase {
     }
 
     private func makeFirstCharsPageData() -> Data {
-        let thumb = [
-            "path": "http://a-url.com",
-            "extension": "jpg"
-        ]
-
-        let items = [
-                [       
-                    "id": 124,
-                    "name": "name",
-                    "description": "description",
-                    "modified": "ontem",
-                    "resourceURI": "http://ab-url.com",
-                    "thumbnail": thumb
-                ],
-                [
-                    "id": 321,
-                    "name": "name2",
-                    "description": "description2",
-                    "modified": "hoje",
-                    "resourceURI": "ac-url.com",
-                    "thumbnail": thumb
-                ],
-        ]
-        let json2 = ["results": items]
-        let json = ["data": json2]
+        let jsonString = jsonStringResponseCharacters
         
-        return try! JSONSerialization.data(withJSONObject: json)
+        let data = Data(jsonString)
+        
+        let dictionary = try! JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed) as! [String: Any]
+                
+        return try! JSONSerialization.data(withJSONObject: dictionary)
     }
-
 }

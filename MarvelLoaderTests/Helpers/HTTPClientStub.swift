@@ -13,13 +13,13 @@ class HTTPClientStub: HTTPClient {
         func cancel() {}
     }
     
-    private let stub: (URL) -> HTTPClient.Result
+    private let stub: (URLRequest) -> HTTPClient.Result
     
-    init(stub: @escaping (URL) -> HTTPClient.Result) {
+    init(stub: @escaping (URLRequest) -> HTTPClient.Result) {
         self.stub = stub
     }
     
-    func get(from url: URL, completion: @escaping (HTTPClient.Result) -> Void) -> HTTPClientTask {
+    func get(from url: URLRequest, completion: @escaping (HTTPClient.Result) -> Void) -> HTTPClientTask {
         completion(stub(url))
         return Task()
     }
@@ -30,7 +30,7 @@ extension HTTPClientStub {
         HTTPClientStub(stub: { _ in .failure(NSError(domain: "offline", code: 0)) })
     }
     
-    static func online(_ stub: @escaping (URL) -> (Data, HTTPURLResponse)) -> HTTPClientStub {
+    static func online(_ stub: @escaping (URLRequest) -> (Data, HTTPURLResponse)) -> HTTPClientStub {
         HTTPClientStub { url in .success(stub(url)) }
     }
 }

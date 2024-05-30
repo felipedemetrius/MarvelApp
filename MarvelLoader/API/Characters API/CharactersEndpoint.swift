@@ -10,7 +10,7 @@ import Foundation
 public enum CharactersEndpoint {
     case get(page: Int)
     
-    public func url(baseURL: URL) -> URL {
+    public func url(baseURL: URL) -> URLRequest {
         switch self {
         case .get(let page):
             var components = URLComponents()
@@ -25,7 +25,9 @@ public enum CharactersEndpoint {
             authorization.append(URLQueryItem(name: "offset", value: page.description))
             
             components.queryItems = authorization
-            return components.url!
+            
+            let request = URLRequest(url: components.url!)
+            return request
         }
     }
 }

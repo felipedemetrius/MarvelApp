@@ -36,7 +36,7 @@ final class HTTPClientRemoteCharactersEnd2EndTests: XCTestCase {
 
     // MARK: - Helpers
     
-    private var charsServerURL: URL {
+    private var charsServerURL: URLRequest {
         return  CharactersEndpoint.get(page: 0)
             .url(baseURL: URL(string: "https://gateway.marvel.com")!)
     }
