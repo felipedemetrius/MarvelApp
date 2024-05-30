@@ -17,7 +17,7 @@ class Logger {
     }
     
     func log(data: Data, response: HTTPURLResponse) {
-        print("[RESPONSE]: " + response.debugDescription)
-        print("[RESPONSE DATA]: \(data.toString)")
+        print("\n[RESPONSE]: " + response.debugDescription)
+        print("[RESPONSE DATA]: \(data.toString)\n")
     }
 }
