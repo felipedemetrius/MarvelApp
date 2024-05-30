@@ -13,9 +13,7 @@ public final class URLSessionHTTPClient: HTTPClient {
     public init(session: URLSession) {
         self.session = session
     }
-    
-    private struct UnexpectedValuesRepresentation: Error {}
-    
+        
     private struct URLSessionTaskWrapper: HTTPClientTask {
         let wrapped: URLSessionTask
         
@@ -35,7 +33,7 @@ public final class URLSessionHTTPClient: HTTPClient {
                     Logger.shared.log(data: data, response: response)
                     return (data, response)
                 } else {
-                    throw UnexpectedValuesRepresentation()
+                    throw NetworkErrorCases.unexpectedValuesRepresentation
                 }
             })
         }
