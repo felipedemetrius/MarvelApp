@@ -40,7 +40,7 @@ final class HTTPClientRemoteCharactersEnd2EndTests: XCTestCase {
 
         case let .failure(error)?:
             switch error {
-            case .error(let error):
+            case .apiError(let error):
                 XCTAssertNotNil(error)
             case .unexpectedValuesRepresentation:
                 XCTFail("Expected failture with error, got no unexpectedValuesRepresentation instead")

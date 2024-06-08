@@ -14,7 +14,7 @@ public final class CharactersMapper {
             guard let error = try? NetworkErrorMapper.map(data, from: response) else {
                 throw NetworkErrorCases.invalidData
             }
-            throw NetworkErrorCases.error(error)
+            throw NetworkErrorCases.apiError(error)
         }
         
         return root.data.results.map({ Character(response: $0)})

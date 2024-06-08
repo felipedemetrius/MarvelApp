@@ -78,10 +78,6 @@ class RemoteCharactersLoaderImplTests: XCTestCase {
     private func makeFirstCharsPageData() -> Data {
         let jsonString = jsonStringResponseCharacters
         
-        let data = Data(jsonString)
-        
-        let dictionary = try! JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed) as! [String: Any]
-                
-        return try! JSONSerialization.data(withJSONObject: dictionary)
+        return Data(jsonString)        
     }
 }

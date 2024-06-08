@@ -10,7 +10,7 @@ import Foundation
 public enum NetworkErrorCases: Swift.Error {
     case unexpectedValuesRepresentation
     case invalidData
-    case error(NetworkError)
+    case apiError(NetworkError)
 }
 
 struct NetworkErrorResponse: Decodable {
