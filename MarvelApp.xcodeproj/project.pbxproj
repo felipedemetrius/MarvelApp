@@ -13,6 +13,7 @@
 		0209FB7D2C34B96C00CFB794 /* CoreDataCharacterStore+CharacterImageDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0209FB7C2C34B96C00CFB794 /* CoreDataCharacterStore+CharacterImageDataStore.swift */; };
 		0209FB7F2C34C0D300CFB794 /* InMemoryCharacterStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0209FB7E2C34C0D300CFB794 /* InMemoryCharacterStoreTests.swift */; };
 		0209FB812C34C12E00CFB794 /* InMemoryCharacterImageDataStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0209FB802C34C12E00CFB794 /* InMemoryCharacterImageDataStoreTests.swift */; };
+		0209FB842C34C3F400CFB794 /* CharacterCacheIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0209FB832C34C3F400CFB794 /* CharacterCacheIntegrationTests.swift */; };
 		021BD9E72C3368CB001A0D06 /* CharacterStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 021BD9E52C3368CB001A0D06 /* CharacterStore.xcdatamodeld */; };
 		021BD9E92C336AC5001A0D06 /* ManagedThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021BD9E82C336AC5001A0D06 /* ManagedThumbnail.swift */; };
 		021BD9ED2C337066001A0D06 /* CharacterStoreSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021BD9EC2C337066001A0D06 /* CharacterStoreSpy.swift */; };
@@ -97,6 +98,7 @@
 		0209FB7C2C34B96C00CFB794 /* CoreDataCharacterStore+CharacterImageDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataCharacterStore+CharacterImageDataStore.swift"; sourceTree = "<group>"; };
 		0209FB7E2C34C0D300CFB794 /* InMemoryCharacterStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryCharacterStoreTests.swift; sourceTree = "<group>"; };
 		0209FB802C34C12E00CFB794 /* InMemoryCharacterImageDataStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryCharacterImageDataStoreTests.swift; sourceTree = "<group>"; };
+		0209FB832C34C3F400CFB794 /* CharacterCacheIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCacheIntegrationTests.swift; sourceTree = "<group>"; };
 		021BD9E62C3368CB001A0D06 /* CharacterStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CharacterStore.xcdatamodel; sourceTree = "<group>"; };
 		021BD9E82C336AC5001A0D06 /* ManagedThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedThumbnail.swift; sourceTree = "<group>"; };
 		021BD9EC2C337066001A0D06 /* CharacterStoreSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterStoreSpy.swift; sourceTree = "<group>"; };
@@ -184,9 +186,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0209FB822C34C3CC00CFB794 /* Integration */ = {
+			isa = PBXGroup;
+			children = (
+				0209FB832C34C3F400CFB794 /* CharacterCacheIntegrationTests.swift */,
+			);
+			path = Integration;
+			sourceTree = "<group>";
+		};
 		021BD9EA2C33703F001A0D06 /* Cache */ = {
 			isa = PBXGroup;
 			children = (
+				0209FB822C34C3CC00CFB794 /* Integration */,
 				021BD9FD2C337915001A0D06 /* CharacterImageDataStoreSpecs */,
 				021BD9F22C337429001A0D06 /* CharacterStoreSpecs */,
 				021BD9EB2C337047001A0D06 /* Helpers */,
@@ -656,6 +667,7 @@
 				0209FB812C34C12E00CFB794 /* InMemoryCharacterImageDataStoreTests.swift in Sources */,
 				021BD9EF2C3370DB001A0D06 /* CharacterImageDataStoreSpy.swift in Sources */,
 				0209FB7F2C34C0D300CFB794 /* InMemoryCharacterStoreTests.swift in Sources */,
+				0209FB842C34C3F400CFB794 /* CharacterCacheIntegrationTests.swift in Sources */,
 				021BD9FC2C3378A7001A0D06 /* XCTestCase+FailableDeleteCharacterStoreSpecs.swift in Sources */,
 				021BD9F62C3376D7001A0D06 /* XCTestCase+CharacterStoreSpecs.swift in Sources */,
 				021BD9F12C337140001A0D06 /* CharacterCacheTestHelpers.swift in Sources */,
@@ -894,7 +906,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.felipesilva.MarvelLoaderTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -910,7 +922,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.felipesilva.MarvelLoaderTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
