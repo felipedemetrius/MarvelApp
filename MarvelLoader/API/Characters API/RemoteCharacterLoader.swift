@@ -7,11 +7,11 @@
 
 import Combine
 
-public protocol RemoteCharactersLoader {
+public protocol RemoteCharacterLoader {
     func get(page: Int) -> AnyPublisher<[Character], NetworkErrorCases>
 }
 
-public final class RemoteCharactersLoaderImpl: RemoteCharactersLoader {
+public final class RemoteCharacterLoaderImpl: RemoteCharacterLoader {
     
     private let httpClient: HTTPClient
     

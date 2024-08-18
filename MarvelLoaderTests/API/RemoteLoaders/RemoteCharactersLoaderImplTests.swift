@@ -15,7 +15,7 @@ class RemoteCharactersLoaderImplTests: XCTestCase {
     
     func test_remoteCharactersLoaderGetMock() {
         let httpClient: HTTPClientStub = .online(response)
-        let sut = RemoteCharactersLoaderImpl(httpClient: httpClient)
+        let sut = RemoteCharacterLoaderImpl(httpClient: httpClient)
         let exp = expectation(description: "Wait for request")
 
         sut.get().sink { result in
@@ -37,7 +37,7 @@ class RemoteCharactersLoaderImplTests: XCTestCase {
     
     func test_remoteCharactersLoaderGetMockOffline() {
         let httpClient: HTTPClientStub = .offline
-        let sut = RemoteCharactersLoaderImpl(httpClient: httpClient)
+        let sut = RemoteCharacterLoaderImpl(httpClient: httpClient)
         let exp = expectation(description: "Wait for request")
 
         sut.get().sink { result in

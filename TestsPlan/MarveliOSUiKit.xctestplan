@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "54C4BA85-644D-4C7D-9266-5E5841C6F71B",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:MarvelApp.xcodeproj",
+        "identifier" : "02CEB7DC2C67EEF000F91309",
+        "name" : "MarveliOSUiKitTests"
+      }
+    }
+  ],
+  "version" : 1
+}
