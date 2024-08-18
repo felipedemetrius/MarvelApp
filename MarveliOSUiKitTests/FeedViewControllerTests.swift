@@ -11,6 +11,8 @@ import MarvelLoader
 @testable import MarveliOSUiKit
 
 final class FeedViewController: UITableViewController {
+    private var onViewIsAppearing: (() -> Void)?
+
     var loader: CharacterLoader?
     
     init (loader: CharacterLoader) {
@@ -24,16 +26,31 @@ final class FeedViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loader?.load(completion: { _ in
-            
-        })
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(load), for: .valueChanged)
+        onViewIsAppearing = { [weak self] in
+            self?.load()
+            self?.onViewIsAppearing = nil
+        }
+    }
+    
+    override func viewIsAppearing(_ animated: Bool) {
+        super.viewIsAppearing(animated)
+        onViewIsAppearing?()
+    }
+
+    @objc private func load() {
+        refreshControl?.beginRefreshing()
+        loader?.load { [weak self] _ in
+            self?.refreshControl?.endRefreshing()
+        }
     }
 }
 
 final class FeedViewControllerTests: XCTestCase {
 
     func test_notLoadCharactersOnOpenScreen() {
-        let (sut, loader) = makeSUT()
+        let (_, loader) = makeSUT()
         
         XCTAssertEqual(loader.count, 0)
     }
@@ -41,12 +58,51 @@ final class FeedViewControllerTests: XCTestCase {
     func test_viewDidLoad_LoadsFeed() {
         let (sut, loader) = makeSUT()
 
-        sut.loadViewIfNeeded()
+        sut.simulateAppearance()
         
         XCTAssertEqual(loader.count, 1)
     }
     
+    func test_loadsPullToRefresh() {
+        let (sut, loader) = makeSUT()
+
+        sut.simulateAppearance()
+        XCTAssertEqual(loader.count, 1)
+
+        sut.simulateUserInitiatedFeedReload()
+        XCTAssertEqual(loader.count, 2)
+        
+        sut.simulateUserInitiatedFeedReload()
+        XCTAssertEqual(loader.count, 3)
+    }
     
+    func test_showsUIRefreshControl() {
+        let (sut, _) = makeSUT()
+
+        sut.simulateAppearance()
+        sut.refreshControl?.simulatePullToRefresh()
+        
+        XCTAssertEqual(sut.isShowingLoadingIndicator, true)
+    }
+
+    func test_hideUIRefreshControl() {
+        let (sut, loader) = makeSUT()
+
+        sut.simulateAppearance()
+        loader.completeLoading(at: 0)
+        
+        XCTAssertEqual(sut.isShowingLoadingIndicator, false)
+    }
+
+    func test_pullToRefresh_showsLoading() {
+        let (sut, loader) = makeSUT()
+
+        sut.simulateAppearance()
+        sut.simulateUserInitiatedFeedReload()
+        
+        XCTAssertEqual(sut.isShowingLoadingIndicator, true)
+    }
+
     //MARK: - Private helpers
     
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: FeedViewController, loader: CharacterLoaderSpy) {
@@ -59,9 +115,17 @@ final class FeedViewControllerTests: XCTestCase {
 }
 
 final class CharacterLoaderSpy: CharacterLoader {
-    private(set) var count = 0
+    var count: Int {
+        completions.count
+    }
+    
+    private(set) var completions: [(CharacterLoader.Result) -> Void] = []
     
     func load(completion: @escaping (CharacterLoader.Result) -> Void) {
-        count += 1
+        completions.append(completion)
+    }
+    
+    func completeLoading(at index: Int) {
+        completions[index](.success([]))
     }
 }
