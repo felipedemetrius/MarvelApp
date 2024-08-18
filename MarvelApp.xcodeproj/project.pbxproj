@@ -35,6 +35,7 @@
 		02382E152C724A6D004D7B54 /* UIControl+TestsHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02382E142C724A6D004D7B54 /* UIControl+TestsHelpers.swift */; };
 		02382E172C724A97004D7B54 /* UIRefreshControl+TestsHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02382E162C724A97004D7B54 /* UIRefreshControl+TestsHelpers.swift */; };
 		02382E192C724AD3004D7B54 /* FeedViewController+HelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02382E182C724AD3004D7B54 /* FeedViewController+HelpersTests.swift */; };
+		02382E1C2C7261DF004D7B54 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02382E1B2C7261DF004D7B54 /* FeedViewController.swift */; };
 		02652F782C07E2BA00A8AB21 /* JSONResponseCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02652F772C07E2BA00A8AB21 /* JSONResponseCharacters.swift */; };
 		02652F7D2C08B32100A8AB21 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02652F7C2C08B32100A8AB21 /* Endpoints.swift */; };
 		02652F7F2C08B45200A8AB21 /* URLComponents+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02652F7E2C08B45200A8AB21 /* URLComponents+Extension.swift */; };
@@ -160,6 +161,7 @@
 		02382E142C724A6D004D7B54 /* UIControl+TestsHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+TestsHelpers.swift"; sourceTree = "<group>"; };
 		02382E162C724A97004D7B54 /* UIRefreshControl+TestsHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIRefreshControl+TestsHelpers.swift"; sourceTree = "<group>"; };
 		02382E182C724AD3004D7B54 /* FeedViewController+HelpersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewController+HelpersTests.swift"; sourceTree = "<group>"; };
+		02382E1B2C7261DF004D7B54 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		02652F772C07E2BA00A8AB21 /* JSONResponseCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONResponseCharacters.swift; sourceTree = "<group>"; };
 		02652F7C2C08B32100A8AB21 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		02652F7E2C08B45200A8AB21 /* URLComponents+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLComponents+Extension.swift"; sourceTree = "<group>"; };
@@ -320,6 +322,14 @@
 				02382E182C724AD3004D7B54 /* FeedViewController+HelpersTests.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		02382E1A2C7261BE004D7B54 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				02382E1B2C7261DF004D7B54 /* FeedViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		02652F7B2C08B30900A8AB21 /* Endpoints */ = {
@@ -607,6 +617,7 @@
 		02CEB7D72C67EEF000F91309 /* MarveliOSUiKit */ = {
 			isa = PBXGroup;
 			children = (
+				02382E1A2C7261BE004D7B54 /* ViewControllers */,
 				02CEB7D82C67EEF000F91309 /* MarveliOSUiKit.h */,
 			);
 			path = MarveliOSUiKit;
@@ -737,6 +748,7 @@
 					};
 					02CEB7D52C67EEF000F91309 = {
 						CreatedOnToolsVersion = 15.2;
+						LastSwiftMigration = 1520;
 					};
 					02CEB7DC2C67EEF000F91309 = {
 						CreatedOnToolsVersion = 15.2;
@@ -886,6 +898,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02382E1C2C7261DF004D7B54 /* FeedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1156,6 +1169,7 @@
 		02CEB7E52C67EEF000F91309 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1182,6 +1196,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1190,6 +1205,7 @@
 		02CEB7E62C67EEF000F91309 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1225,6 +1241,7 @@
 		02CEB7E72C67EEF000F91309 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1242,6 +1259,7 @@
 		02CEB7E82C67EEF000F91309 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;

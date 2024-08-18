@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import MarveliOSUiKit
+@testable import MarveliOSUiKit
 
 extension FeedViewController {    
     func simulateAppearance() {
