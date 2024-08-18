@@ -83,20 +83,45 @@ final class FeedViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.errorMessage, nil)
     }
 
+    func test_loadFeedCompletion_rendersSuccessfullyLoadedFeed() {
+        let image0 = makeChar(description: "another description", title: "Super-man")
+        let image1 = makeChar(title: "Super-man")
+        let image2 = makeChar(description: "another description")
+        let image3 = makeChar()
+        let (sut, loader) = makeSUT()
+
+        sut.simulateAppearance()
+        assertThat(sut, isRendering: [])
+
+        loader.completeLoading(with: [image0], at: 0)
+        assertThat(sut, isRendering: [image0])
+
+        sut.simulateUserInitiatedFeedReload()
+        loader.completeLoading(with: [image0, image1, image2, image3], at: 1)
+        assertThat(sut, isRendering: [image0, image1, image2, image3])
+    }
+
+    
     //MARK: - Private helpers
     
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: FeedViewController, loader: CharacterLoaderSpy) {
         let loader = CharacterLoaderSpy()
-        let viewModel = FeedViewModel(feedLoader: loader)
-        let sut = FeedViewController(viewModel: viewModel)
+        let sut = FeedUIComposer.feedComposedWith(feedLoader: loader, imageLoader: loader)
         trackForMemoryLeaks(loader, file: file, line: line)
-        trackForMemoryLeaks(viewModel, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
         return (sut, loader)
     }
+    
+    private func makeChar(description: String = "", title: String = "", thumbnailPath: String = "http://any-url.com", thumbnailExtension: String = "jpg") -> Character {
+        return Character(id: UUID().hashValue, name: title, description: description, modified: "", resourceURI: "", thumbnailPath: thumbnailPath, thumbnailExtension: thumbnailExtension)
+    }
+
+    private func anyImageData() -> Data {
+        return UIImage.make(withColor: .red).pngData()!
+    }
 }
 
-final class CharacterLoaderSpy: CharacterLoader {
+final class CharacterLoaderSpy: CharacterLoader, ImageDataLoader {
     var count: Int {
         completions.count
     }
@@ -107,11 +132,43 @@ final class CharacterLoaderSpy: CharacterLoader {
         completions.append(completion)
     }
     
-    func completeLoading(at index: Int) {
-        completions[index](.success([]))
+    func completeLoading(with feed: [Character] = [], at index: Int) {
+        completions[index](.success(feed))
     }
     
     func completeLoadingError(at index: Int) {
         completions[index](.failure(NSError(domain: "", code: 0)))
     }
+    
+    // MARK: - FeedImageDataLoader
+
+    private struct TaskSpy: ImageDataLoaderTask {
+        let cancelCallback: () -> Void
+        func cancel() {
+            cancelCallback()
+        }
+    }
+
+    private var imageRequests = [(url: URL, completion: (ImageDataLoader.Result) -> Void)]()
+
+    var loadedImageURLs: [URL] {
+        return imageRequests.map { $0.url }
+    }
+
+    private(set) var cancelledImageURLs = [URL]()
+
+    func loadImageData(from url: URL, completion: @escaping (ImageDataLoader.Result) -> Void) -> ImageDataLoaderTask {
+        imageRequests.append((url, completion))
+        return TaskSpy { [weak self] in self?.cancelledImageURLs.append(url) }
+    }
+
+    func completeImageLoading(with imageData: Data = Data(), at index: Int = 0) {
+        imageRequests[index].completion(.success(imageData))
+    }
+
+    func completeImageLoadingWithError(at index: Int = 0) {
+        let error = NSError(domain: "an error", code: 0)
+        imageRequests[index].completion(.failure(error))
+    }
+
 }

@@ -21,7 +21,7 @@ public final class FeedViewModel {
     }
 
     var onLoadingStateChange = PassthroughSubject<Bool, Never>()
-    var onFeedLoad = PassthroughSubject<[Character], Never>()
+    var onFeedLoad: (([Character]) -> Void)?
     var onErrorStateChange = PassthroughSubject<String?, Never>()
 
     func loadFeed() {
@@ -29,7 +29,7 @@ public final class FeedViewModel {
         feedLoader.load { [weak self] result in
             switch result {
             case .success(let feed):
-                self?.onFeedLoad.send(feed)
+                self?.onFeedLoad?(feed)
             case .failure:
                 self?.onErrorStateChange.send(Localized.Feed.loadError)
             }

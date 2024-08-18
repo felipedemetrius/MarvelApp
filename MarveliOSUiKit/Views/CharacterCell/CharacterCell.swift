@@ -7,10 +7,10 @@
 
 import UIKit
 
-final class CharacterCell: UITableViewCell {
+public final class CharacterCell: UITableViewCell {
     var onRetry: (() -> Void)?
 
-    var imageChar: UIImageView = {
+    public lazy var imageChar: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFit
         image.layer.cornerRadius = 8
@@ -20,7 +20,7 @@ final class CharacterCell: UITableViewCell {
         return image
     }()
 
-    lazy var name: UILabel = {
+    public lazy var name: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.font = .preferredFont(forTextStyle: .title1)
@@ -31,7 +31,7 @@ final class CharacterCell: UITableViewCell {
         return label
     }()
 
-    lazy var descriptionChar: UILabel = {
+    public lazy var descriptionChar: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.font = .preferredFont(forTextStyle: .headline)
@@ -42,9 +42,13 @@ final class CharacterCell: UITableViewCell {
         return label
     }()
     
-    lazy var retryButton = UIButton()
+    public lazy var retryButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
     
-    lazy var imageContainer: UIView = {
+    public lazy var imageContainer: UIView = {
         let view = UIView()
         view.frame.size.height = 375
         view.addSubview(imageChar)
@@ -62,11 +66,11 @@ final class CharacterCell: UITableViewCell {
         retryButton.titleLabel?.font = .boldSystemFont(ofSize: 60)
         retryButton.translatesAutoresizingMaskIntoConstraints = false
 
+        view.addSubview(retryButton)
         NSLayoutConstraint.activate([
             retryButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0),
             retryButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0),
         ])
-        view.addSubview(retryButton)
 
         return view
     }()
@@ -74,7 +78,7 @@ final class CharacterCell: UITableViewCell {
     lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.addArrangedSubview(name)
-        stackView.addArrangedSubview(imageChar)
+        stackView.addArrangedSubview(imageContainer)
         stackView.addArrangedSubview(descriptionChar)
         stackView.alignment = .leading
         stackView.distribution = .fillProportionally
@@ -88,8 +92,9 @@ final class CharacterCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
 
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
+        
         setupCell()
     }
 
