@@ -22,8 +22,7 @@ public final class CharacterCell: UITableViewCell {
 
     public lazy var name: UILabel = {
         let label = UILabel()
-        label.textColor = .black
-        label.font = .preferredFont(forTextStyle: .title1)
+        label.font = .preferredFont(forTextStyle: .title2)
         label.numberOfLines = 1
         label.textAlignment = .natural
         label.adjustsFontForContentSizeCategory = true
@@ -33,7 +32,6 @@ public final class CharacterCell: UITableViewCell {
 
     public lazy var descriptionChar: UILabel = {
         let label = UILabel()
-        label.textColor = .black
         label.font = .preferredFont(forTextStyle: .headline)
         label.numberOfLines = 4
         label.textAlignment = .natural
@@ -54,6 +52,10 @@ public final class CharacterCell: UITableViewCell {
         view.addSubview(imageChar)
         view.translatesAutoresizingMaskIntoConstraints = false
 
+        NSLayoutConstraint.activate([
+            view.heightAnchor.constraint(equalToConstant: 375)
+        ])
+        
         NSLayoutConstraint.activate([
             imageChar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             imageChar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
@@ -81,7 +83,7 @@ public final class CharacterCell: UITableViewCell {
         stackView.addArrangedSubview(imageContainer)
         stackView.addArrangedSubview(descriptionChar)
         stackView.alignment = .leading
-        stackView.distribution = .fillProportionally
+        stackView.distribution = .fill
         stackView.axis = .vertical
         stackView.spacing = 8
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -90,6 +92,7 @@ public final class CharacterCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setupCell()
     }
 
     public override func layoutSubviews() {
@@ -108,20 +111,21 @@ public final class CharacterCell: UITableViewCell {
 
     private func setupCell() {
         self.selectionStyle = .none
-        self.accessoryType = .disclosureIndicator
+        self.accessoryType = .none
         addComponents()
         installConstraints()
     }
 
     private func addComponents() {
         contentView.addSubview(stackView)
+        imageChar.setContentHuggingPriority(.defaultHigh, for: .horizontal)
     }
 
     private func installConstraints() {
         NSLayoutConstraint.activate([
             stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
             stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 8),
-            stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 24),
             stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 8),
         ])
     }

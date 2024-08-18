@@ -21,7 +21,7 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
     }
 
     public convenience init (viewModel: FeedViewModel) {
-        self.init()
+        self.init(style: .plain)
         self.viewModel = viewModel
         bind()
     }
@@ -56,6 +56,9 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
         tableView.dataSource = self
         tableView.delegate = self
         tableView.prefetchDataSource = self
+        tableView.separatorStyle = .none
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 580
         tableView.tableHeaderView = errorView.makeContainer()
         tableView.register(CharacterCell.self, forCellReuseIdentifier: "CharacterCell")
 
