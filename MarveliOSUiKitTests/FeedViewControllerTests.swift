@@ -49,6 +49,14 @@ final class FeedViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.isShowingLoadingIndicator, false)
     }
 
+    func test_feedView_hasTitle() {
+        let (sut, _) = makeSUT()
+
+        sut.simulateAppearance()
+
+        XCTAssertEqual(sut.title, localized("FEED_VIEW_TITLE"))
+    }
+
     //MARK: - Private helpers
     
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: FeedViewController, loader: CharacterLoaderSpy) {

@@ -47,6 +47,7 @@
 		02382E332C727782004D7B54 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02382E322C727782004D7B54 /* Localized.swift */; };
 		02382E362C7278F6004D7B54 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 02382E382C7278F7004D7B54 /* Localizable.strings */; };
 		02382E3B2C727991004D7B54 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02382E3A2C727991004D7B54 /* FeedViewModel.swift */; };
+		02382E3D2C728172004D7B54 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02382E3C2C728172004D7B54 /* Localizable.swift */; };
 		02652F782C07E2BA00A8AB21 /* JSONResponseCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02652F772C07E2BA00A8AB21 /* JSONResponseCharacters.swift */; };
 		02652F7D2C08B32100A8AB21 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02652F7C2C08B32100A8AB21 /* Endpoints.swift */; };
 		02652F7F2C08B45200A8AB21 /* URLComponents+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02652F7E2C08B45200A8AB21 /* URLComponents+Extension.swift */; };
@@ -185,6 +186,7 @@
 		02382E372C7278F7004D7B54 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		02382E392C7278F9004D7B54 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		02382E3A2C727991004D7B54 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
+		02382E3C2C728172004D7B54 /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		02652F772C07E2BA00A8AB21 /* JSONResponseCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONResponseCharacters.swift; sourceTree = "<group>"; };
 		02652F7C2C08B32100A8AB21 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		02652F7E2C08B45200A8AB21 /* URLComponents+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLComponents+Extension.swift"; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 				02382E142C724A6D004D7B54 /* UIControl+TestsHelpers.swift */,
 				02382E162C724A97004D7B54 /* UIRefreshControl+TestsHelpers.swift */,
 				02382E182C724AD3004D7B54 /* FeedViewController+HelpersTests.swift */,
+				02382E3C2C728172004D7B54 /* Localizable.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -996,6 +999,7 @@
 				02382E172C724A97004D7B54 /* UIRefreshControl+TestsHelpers.swift in Sources */,
 				02382E192C724AD3004D7B54 /* FeedViewController+HelpersTests.swift in Sources */,
 				02382E132C7241CC004D7B54 /* XCTests+Extensions.swift in Sources */,
+				02382E3D2C728172004D7B54 /* Localizable.swift in Sources */,
 				02CEB7E32C67EEF000F91309 /* FeedViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
