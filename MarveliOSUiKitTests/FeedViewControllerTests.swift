@@ -53,8 +53,10 @@ final class FeedViewControllerTests: XCTestCase {
     
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: FeedViewController, loader: CharacterLoaderSpy) {
         let loader = CharacterLoaderSpy()
-        let sut = FeedViewController(loader: loader)
+        let viewModel = FeedViewModel(feedLoader: loader)
+        let sut = FeedViewController(viewModel: viewModel)
         trackForMemoryLeaks(loader, file: file, line: line)
+        trackForMemoryLeaks(viewModel, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
         return (sut, loader)
     }

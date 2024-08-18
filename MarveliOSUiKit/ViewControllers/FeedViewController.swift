@@ -7,21 +7,21 @@
 
 import UIKit
 import MarvelLoader
+import Combine
 
 public final class FeedViewController: UITableViewController {
+    private var bag = Set<AnyCancellable>()
+    private(set) public var errorView = ErrorView()
     private var onViewIsAppearing: (() -> Void)?
 
-    var loader: CharacterLoader?
+    var viewModel: FeedViewModel?
     
-    public init (loader: CharacterLoader) {
-        self.loader = loader
-        super.init(style: .plain)
+    public convenience init (viewModel: FeedViewModel) {
+        self.init()
+        self.viewModel = viewModel
+        bind()
     }
-    
-    required init?(coder: NSCoder) {
-        super.init(style: .plain)
-    }
-    
+        
     public override func viewDidLoad() {
         super.viewDidLoad()
         refreshControl = UIRefreshControl()
@@ -32,15 +32,33 @@ public final class FeedViewController: UITableViewController {
         }
     }
     
+    deinit {
+        bag.forEach { $0.cancel() }
+        bag.removeAll()
+    }
+    
     public override func viewIsAppearing(_ animated: Bool) {
         super.viewIsAppearing(animated)
         onViewIsAppearing?()
     }
 
     @objc private func load() {
-        refreshControl?.beginRefreshing()
-        loader?.load { [weak self] _ in
-            self?.refreshControl?.endRefreshing()
-        }
+        viewModel?.onErrorStateChange.send(.none)
+        viewModel?.loadFeed()
+    }
+    
+    private func bind() {
+        title = viewModel?.title
+        viewModel?.onLoadingStateChange.sink { [weak self] isLoading in
+            if isLoading {
+                self?.refreshControl?.beginRefreshing()
+            } else {
+                self?.refreshControl?.endRefreshing()
+            }
+        }.store(in: &bag)
+
+        viewModel?.onErrorStateChange.sink { [weak self] errorMessage in
+            self?.errorView.message = errorMessage
+        }.store(in: &bag)
     }
 }

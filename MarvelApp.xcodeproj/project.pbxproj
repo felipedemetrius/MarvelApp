@@ -36,6 +36,17 @@
 		02382E172C724A97004D7B54 /* UIRefreshControl+TestsHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02382E162C724A97004D7B54 /* UIRefreshControl+TestsHelpers.swift */; };
 		02382E192C724AD3004D7B54 /* FeedViewController+HelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02382E182C724AD3004D7B54 /* FeedViewController+HelpersTests.swift */; };
 		02382E1C2C7261DF004D7B54 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02382E1B2C7261DF004D7B54 /* FeedViewController.swift */; };
+		02382E202C726333004D7B54 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02382E1F2C726333004D7B54 /* ErrorView.swift */; };
+		02382E232C7263B4004D7B54 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02382E222C7263B4004D7B54 /* CharacterCell.swift */; };
+		02382E252C726F4C004D7B54 /* CharacterCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02382E242C726F4C004D7B54 /* CharacterCellViewModel.swift */; };
+		02382E272C727316004D7B54 /* CharacterCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02382E262C727316004D7B54 /* CharacterCellController.swift */; };
+		02382E2A2C72737C004D7B54 /* UITableView+Dequeing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02382E292C72737C004D7B54 /* UITableView+Dequeing.swift */; };
+		02382E2E2C72759A004D7B54 /* UIImageView+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02382E2B2C72759A004D7B54 /* UIImageView+Animations.swift */; };
+		02382E2F2C72759A004D7B54 /* UITableView+HeaderSizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02382E2C2C72759A004D7B54 /* UITableView+HeaderSizing.swift */; };
+		02382E302C72759A004D7B54 /* UIView+Shimmering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02382E2D2C72759A004D7B54 /* UIView+Shimmering.swift */; };
+		02382E332C727782004D7B54 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02382E322C727782004D7B54 /* Localized.swift */; };
+		02382E362C7278F6004D7B54 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 02382E382C7278F7004D7B54 /* Localizable.strings */; };
+		02382E3B2C727991004D7B54 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02382E3A2C727991004D7B54 /* FeedViewModel.swift */; };
 		02652F782C07E2BA00A8AB21 /* JSONResponseCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02652F772C07E2BA00A8AB21 /* JSONResponseCharacters.swift */; };
 		02652F7D2C08B32100A8AB21 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02652F7C2C08B32100A8AB21 /* Endpoints.swift */; };
 		02652F7F2C08B45200A8AB21 /* URLComponents+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02652F7E2C08B45200A8AB21 /* URLComponents+Extension.swift */; };
@@ -162,6 +173,18 @@
 		02382E162C724A97004D7B54 /* UIRefreshControl+TestsHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIRefreshControl+TestsHelpers.swift"; sourceTree = "<group>"; };
 		02382E182C724AD3004D7B54 /* FeedViewController+HelpersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewController+HelpersTests.swift"; sourceTree = "<group>"; };
 		02382E1B2C7261DF004D7B54 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		02382E1F2C726333004D7B54 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		02382E222C7263B4004D7B54 /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
+		02382E242C726F4C004D7B54 /* CharacterCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCellViewModel.swift; sourceTree = "<group>"; };
+		02382E262C727316004D7B54 /* CharacterCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCellController.swift; sourceTree = "<group>"; };
+		02382E292C72737C004D7B54 /* UITableView+Dequeing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Dequeing.swift"; sourceTree = "<group>"; };
+		02382E2B2C72759A004D7B54 /* UIImageView+Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Animations.swift"; sourceTree = "<group>"; };
+		02382E2C2C72759A004D7B54 /* UITableView+HeaderSizing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+HeaderSizing.swift"; sourceTree = "<group>"; };
+		02382E2D2C72759A004D7B54 /* UIView+Shimmering.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Shimmering.swift"; sourceTree = "<group>"; };
+		02382E322C727782004D7B54 /* Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
+		02382E372C7278F7004D7B54 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		02382E392C7278F9004D7B54 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		02382E3A2C727991004D7B54 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		02652F772C07E2BA00A8AB21 /* JSONResponseCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONResponseCharacters.swift; sourceTree = "<group>"; };
 		02652F7C2C08B32100A8AB21 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		02652F7E2C08B45200A8AB21 /* URLComponents+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLComponents+Extension.swift"; sourceTree = "<group>"; };
@@ -328,8 +351,57 @@
 			isa = PBXGroup;
 			children = (
 				02382E1B2C7261DF004D7B54 /* FeedViewController.swift */,
+				02382E3A2C727991004D7B54 /* FeedViewModel.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		02382E1D2C726317004D7B54 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				02382E282C72736A004D7B54 /* Helpers */,
+				02382E212C726389004D7B54 /* CharacterCell */,
+				02382E1E2C726324004D7B54 /* ErrorView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		02382E1E2C726324004D7B54 /* ErrorView */ = {
+			isa = PBXGroup;
+			children = (
+				02382E1F2C726333004D7B54 /* ErrorView.swift */,
+			);
+			path = ErrorView;
+			sourceTree = "<group>";
+		};
+		02382E212C726389004D7B54 /* CharacterCell */ = {
+			isa = PBXGroup;
+			children = (
+				02382E222C7263B4004D7B54 /* CharacterCell.swift */,
+				02382E242C726F4C004D7B54 /* CharacterCellViewModel.swift */,
+				02382E262C727316004D7B54 /* CharacterCellController.swift */,
+			);
+			path = CharacterCell;
+			sourceTree = "<group>";
+		};
+		02382E282C72736A004D7B54 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				02382E292C72737C004D7B54 /* UITableView+Dequeing.swift */,
+				02382E2B2C72759A004D7B54 /* UIImageView+Animations.swift */,
+				02382E2C2C72759A004D7B54 /* UITableView+HeaderSizing.swift */,
+				02382E2D2C72759A004D7B54 /* UIView+Shimmering.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		02382E312C727772004D7B54 /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				02382E322C727782004D7B54 /* Localized.swift */,
+				02382E382C7278F7004D7B54 /* Localizable.strings */,
+			);
+			path = Strings;
 			sourceTree = "<group>";
 		};
 		02652F7B2C08B30900A8AB21 /* Endpoints */ = {
@@ -617,6 +689,8 @@
 		02CEB7D72C67EEF000F91309 /* MarveliOSUiKit */ = {
 			isa = PBXGroup;
 			children = (
+				02382E312C727772004D7B54 /* Strings */,
+				02382E1D2C726317004D7B54 /* Views */,
 				02382E1A2C7261BE004D7B54 /* ViewControllers */,
 				02CEB7D82C67EEF000F91309 /* MarveliOSUiKit.h */,
 			);
@@ -757,11 +831,12 @@
 			};
 			buildConfigurationList = 02BFD3E52C0536E300B9234B /* Build configuration list for PBXProject "MarvelApp" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = "pt-BR";
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = 02BFD3E12C0536E300B9234B;
 			productRefGroup = 02BFD3EC2C0536E300B9234B /* Products */;
@@ -795,6 +870,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02382E362C7278F6004D7B54 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -898,7 +974,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02382E2E2C72759A004D7B54 /* UIImageView+Animations.swift in Sources */,
+				02382E252C726F4C004D7B54 /* CharacterCellViewModel.swift in Sources */,
+				02382E2F2C72759A004D7B54 /* UITableView+HeaderSizing.swift in Sources */,
+				02382E2A2C72737C004D7B54 /* UITableView+Dequeing.swift in Sources */,
+				02382E272C727316004D7B54 /* CharacterCellController.swift in Sources */,
+				02382E3B2C727991004D7B54 /* FeedViewModel.swift in Sources */,
+				02382E332C727782004D7B54 /* Localized.swift in Sources */,
+				02382E232C7263B4004D7B54 /* CharacterCell.swift in Sources */,
+				02382E302C72759A004D7B54 /* UIView+Shimmering.swift in Sources */,
 				02382E1C2C7261DF004D7B54 /* FeedViewController.swift in Sources */,
+				02382E202C726333004D7B54 /* ErrorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -933,6 +1019,18 @@
 			targetProxy = 02CEB7DF2C67EEF000F91309 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		02382E382C7278F7004D7B54 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				02382E372C7278F7004D7B54 /* en */,
+				02382E392C7278F9004D7B54 /* pt-BR */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		02BFD3FB2C0536E400B9234B /* Debug */ = {
@@ -988,7 +1086,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = NO;
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -1048,7 +1146,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = NO;
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
