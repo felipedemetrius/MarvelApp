@@ -19,7 +19,7 @@ public final class FeedUIComposer {
 
         let feedController = FeedViewController(viewModel: feedViewModel)
                 
-        feedViewModel.onFeedLoad = adaptFeedToCellControllers(forwardingTo: feedController, imageLoader: imageLoader)
+        feedViewModel.onFeedLoad = adaptFeedToCellControllers(forwardingTo: feedController, imageLoader: MainQueueDispatchDecorator(decoratee: imageLoader))
         
         return feedController
     }

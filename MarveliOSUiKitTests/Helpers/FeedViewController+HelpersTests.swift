@@ -24,6 +24,7 @@ extension FeedViewController {
     }
     
     func simulateTapOnErrorMessage() {
+        errorView.layoutSubviews()
         errorView.simulateTap()
     }
 
@@ -55,6 +56,13 @@ extension FeedViewController {
         return 0
     }
 
+    @discardableResult
+    func simulateFeedImageViewVisible(at index: Int) -> CharacterCell? {
+        let cell = feedImageView(at: index) as? CharacterCell
+        cell?.layoutSubviews()
+        return cell
+    }
+
     func feedImageView(at row: Int) -> UITableViewCell? {
         let ds = tableView.dataSource
         let index = IndexPath(row: row, section: feedImagesSection)
@@ -63,6 +71,31 @@ extension FeedViewController {
     
     func numberOfRenderedFeedImageViews() -> Int {
         return tableView.numberOfRows(inSection: feedImagesSection)
+    }
+    
+    @discardableResult
+    func simulateFeedImageViewNotVisible(at row: Int) -> CharacterCell? {
+        let view = simulateFeedImageViewVisible(at: row)
+
+        let delegate = tableView.delegate
+        let index = IndexPath(row: row, section: feedImagesSection)
+        delegate?.tableView?(tableView, didEndDisplaying: view!, forRowAt: index)
+
+        return view
+    }
+
+    func simulateFeedImageViewNearVisible(at row: Int) {
+        let ds = tableView.prefetchDataSource
+        let index = IndexPath(row: row, section: feedImagesSection)
+        ds?.tableView(tableView, prefetchRowsAt: [index])
+    }
+
+    func simulateFeedImageViewNotNearVisible(at row: Int) {
+        simulateFeedImageViewNearVisible(at: row)
+
+        let ds = tableView.prefetchDataSource
+        let index = IndexPath(row: row, section: feedImagesSection)
+        ds?.tableView?(tableView, cancelPrefetchingForRowsAt: [index])
     }
 }
 

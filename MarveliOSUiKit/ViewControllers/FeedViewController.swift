@@ -55,6 +55,7 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
     private func configureTableView() {
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.prefetchDataSource = self
         tableView.tableHeaderView = errorView.makeContainer()
         tableView.register(CharacterCell.self, forCellReuseIdentifier: "CharacterCell")
 
