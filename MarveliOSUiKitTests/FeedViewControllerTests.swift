@@ -21,6 +21,13 @@ final class FeedViewController: UITableViewController {
     required init?(coder: NSCoder) {
         super.init(style: .plain)
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        loader?.load(completion: { _ in
+            
+        })
+    }
 }
 
 final class FeedViewControllerTests: XCTestCase {
@@ -31,12 +38,21 @@ final class FeedViewControllerTests: XCTestCase {
         
         XCTAssertEqual(loader.count, 0)
     }
+    
+    func test_viewDidLoad_LoadsFeed() {
+        let loader = CharacterLoaderSpy()
+        let view = FeedViewController(loader: loader)
+        
+        view.loadViewIfNeeded()
+        
+        XCTAssertEqual(loader.count, 1)
+    }
 }
 
 final class CharacterLoaderSpy: CharacterLoader {
     private(set) var count = 0
     
     func load(completion: @escaping (CharacterLoader.Result) -> Void) {
-        
+        count += 1
     }
 }
