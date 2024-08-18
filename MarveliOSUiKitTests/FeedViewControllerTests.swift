@@ -33,19 +33,28 @@ final class FeedViewController: UITableViewController {
 final class FeedViewControllerTests: XCTestCase {
 
     func test_notLoadCharactersOnOpenScreen() {
-        let loader = CharacterLoaderSpy()
-        let _ = FeedViewController(loader: loader)
+        let (sut, loader) = makeSUT()
         
         XCTAssertEqual(loader.count, 0)
     }
     
     func test_viewDidLoad_LoadsFeed() {
-        let loader = CharacterLoaderSpy()
-        let view = FeedViewController(loader: loader)
-        
-        view.loadViewIfNeeded()
+        let (sut, loader) = makeSUT()
+
+        sut.loadViewIfNeeded()
         
         XCTAssertEqual(loader.count, 1)
+    }
+    
+    
+    //MARK: - Private helpers
+    
+    private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: FeedViewController, loader: CharacterLoaderSpy) {
+        let loader = CharacterLoaderSpy()
+        let sut = FeedViewController(loader: loader)
+        trackForMemoryLeaks(loader, file: file, line: line)
+        trackForMemoryLeaks(sut, file: file, line: line)
+        return (sut, loader)
     }
 }
 

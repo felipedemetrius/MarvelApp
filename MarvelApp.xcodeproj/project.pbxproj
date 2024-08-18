@@ -31,6 +31,7 @@
 		021BDA072C337C9C001A0D06 /* LoadCharacterFromCacheUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021BDA062C337C9C001A0D06 /* LoadCharacterFromCacheUseCaseTests.swift */; };
 		021BDA092C337D31001A0D06 /* ValidateCharacterCacheUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021BDA082C337D31001A0D06 /* ValidateCharacterCacheUseCaseTests.swift */; };
 		021BDA0B2C337DC1001A0D06 /* LoadCharacterImageDataFromCacheUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021BDA0A2C337DC1001A0D06 /* LoadCharacterImageDataFromCacheUseCaseTests.swift */; };
+		02382E132C7241CC004D7B54 /* XCTests+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02382E122C7241CC004D7B54 /* XCTests+Extensions.swift */; };
 		02652F782C07E2BA00A8AB21 /* JSONResponseCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02652F772C07E2BA00A8AB21 /* JSONResponseCharacters.swift */; };
 		02652F7D2C08B32100A8AB21 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02652F7C2C08B32100A8AB21 /* Endpoints.swift */; };
 		02652F7F2C08B45200A8AB21 /* URLComponents+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02652F7E2C08B45200A8AB21 /* URLComponents+Extension.swift */; };
@@ -152,6 +153,7 @@
 		021BDA082C337D31001A0D06 /* ValidateCharacterCacheUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateCharacterCacheUseCaseTests.swift; sourceTree = "<group>"; };
 		021BDA0A2C337DC1001A0D06 /* LoadCharacterImageDataFromCacheUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadCharacterImageDataFromCacheUseCaseTests.swift; sourceTree = "<group>"; };
 		02382E102C723EFE004D7B54 /* MarveliOSUiKit.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = file; name = MarveliOSUiKit.xctestplan; path = TestsPlan/MarveliOSUiKit.xctestplan; sourceTree = SOURCE_ROOT; };
+		02382E122C7241CC004D7B54 /* XCTests+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTests+Extensions.swift"; sourceTree = "<group>"; };
 		02652F772C07E2BA00A8AB21 /* JSONResponseCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONResponseCharacters.swift; sourceTree = "<group>"; };
 		02652F7C2C08B32100A8AB21 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		02652F7E2C08B45200A8AB21 /* URLComponents+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLComponents+Extension.swift"; sourceTree = "<group>"; };
@@ -301,6 +303,14 @@
 				021BDA002C3379A1001A0D06 /* XCTestCase+CharacterImageDataStoreSpecs.swift */,
 			);
 			path = CharacterImageDataStoreSpecs;
+			sourceTree = "<group>";
+		};
+		02382E112C724198004D7B54 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				02382E122C7241CC004D7B54 /* XCTests+Extensions.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		02652F7B2C08B30900A8AB21 /* Endpoints */ = {
@@ -596,6 +606,7 @@
 		02CEB7E12C67EEF000F91309 /* MarveliOSUiKitTests */ = {
 			isa = PBXGroup;
 			children = (
+				02382E112C724198004D7B54 /* Helpers */,
 				02CEB7E22C67EEF000F91309 /* FeedViewControllerTests.swift */,
 				02382E102C723EFE004D7B54 /* MarveliOSUiKit.xctestplan */,
 			);
@@ -873,6 +884,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02382E132C7241CC004D7B54 /* XCTests+Extensions.swift in Sources */,
 				02CEB7E32C67EEF000F91309 /* FeedViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
