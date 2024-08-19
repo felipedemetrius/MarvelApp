@@ -33,7 +33,9 @@ class FeedUISnapshotTests: XCTestCase {
 
         sut.display(notEmptyFeed())
         
-        
+        //record(snapshot: sut.snapshot(for: .iPhone(style: .light)), named: "NOT_EMPTY_FEED_light")
+        //record(snapshot: sut.snapshot(for: .iPhone(style: .dark)), named: "NOT_EMPTY_FEED_dark")
+
         assert(snapshot: sut.snapshot(for: .iPhone(style: .light)), named: "NOT_EMPTY_FEED_light")
         assert(snapshot: sut.snapshot(for: .iPhone(style: .dark)), named: "NOT_EMPTY_FEED_dark")
     }
@@ -41,8 +43,7 @@ class FeedUISnapshotTests: XCTestCase {
     // MARK: - Helpers
 
     private func makeSUT() -> FeedViewController {
-        let loader = AlwaysSucceedingFeedLoader()
-        let controller = FeedViewController(viewModel: FeedViewModel(feedLoader: loader))
+        let controller = FeedViewController(viewModel: FeedViewModel(feedLoader: AlwaysSucceedingFeedLoader()))
         controller.simulateAppearance()
         controller.tableView.showsVerticalScrollIndicator = false
         controller.tableView.showsHorizontalScrollIndicator = false

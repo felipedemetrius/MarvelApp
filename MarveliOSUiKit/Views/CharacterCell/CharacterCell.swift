@@ -13,8 +13,6 @@ public final class CharacterCell: UITableViewCell {
     public lazy var imageChar: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFit
-        image.layer.cornerRadius = 8
-        image.layer.masksToBounds = true
         image.layer.borderWidth = 0.5
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
@@ -49,30 +47,24 @@ public final class CharacterCell: UITableViewCell {
     public lazy var imageContainer: UIView = {
         let view = UIView()
         view.frame.size.height = 375
-        view.addSubview(imageChar)
+        view.frame.size.width = 375
+        view.addSubview(imageChar.makeContainer())
+        view.layer.cornerRadius = 8
+        view.layer.masksToBounds = true
+        view.backgroundColor = .lightGray
         view.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            view.heightAnchor.constraint(equalToConstant: 375)
+            view.heightAnchor.constraint(equalToConstant: 375),
+            view.widthAnchor.constraint(equalToConstant: 375),
         ])
         
-        NSLayoutConstraint.activate([
-            imageChar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-            imageChar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-            imageChar.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
-            imageChar.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
-        ])
-
         retryButton.setTitle("↻", for: .normal)
         retryButton.addTarget(self, action: #selector(onRetryTouched), for: .touchUpInside)
         retryButton.titleLabel?.font = .boldSystemFont(ofSize: 60)
         retryButton.translatesAutoresizingMaskIntoConstraints = false
 
-        view.addSubview(retryButton)
-        NSLayoutConstraint.activate([
-            retryButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0),
-            retryButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0),
-        ])
+        view.addSubview(retryButton.makeContainer())
 
         return view
     }()
@@ -102,7 +94,7 @@ public final class CharacterCell: UITableViewCell {
     }
 
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
     
     @objc private func onRetryTouched() {
@@ -123,10 +115,10 @@ public final class CharacterCell: UITableViewCell {
 
     private func installConstraints() {
         NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 8),
+            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 24),
-            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 8),
+            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -24),
         ])
     }
 
