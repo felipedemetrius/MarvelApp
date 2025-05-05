@@ -8,8 +8,8 @@
 import Foundation
 
 struct Authorization {
-    static let PublicKey = "42450c7c30ed07da81c79ddcb929343a"
-    static let PrivateKey = "92b20d8b768c02a6be7c48ecb568aa60c623e7f7"
+    static let PublicKey = "4ba890814dc8ad862ce524a387d0fa36"
+    static let PrivateKey = "119992e520824e288bc2b1f1fd454689a43ddd7e"
     
     static func credentials() -> [String: Any] {
         let randonTimeStamp = Int.random(min: 100, max: 300)

@@ -154,7 +154,7 @@ final class HTTPClientRemoteCharactersEnd2EndTests: XCTestCase {
     private func description(at index: Int) -> String {
         return [
             "",
-            "Rick Jones has been Hulk's best bud since day one, but now he's more than a friend...he's a teammate! Transformed by a Gamma energy explosion, A-Bomb's thick, armored skin is just as strong and powerful as it is blue. And when he curls into action, he uses it like a giant bowling ball of destruction! ",
+            "Rick Jones has been Hulk\'s best bud since day one, but now he\'s more than a friend...he\'s a teammate! Transformed by a Gamma energy explosion, A-Bomb\'s thick, armored skin is just as strong and powerful as it is blue. And when he curls into action, he uses it like a giant bowling ball of destruction! ",
             "AIM is a terrorist organization bent on destroying the world.",
             "",
             "Formerly known as Emil Blonsky, a spy of Soviet Yugoslavian origin working for the KGB, the Abomination gained his powers after receiving a dose of gamma radiation similar to that which transformed Bruce Banner into the incredible Hulk.",
@@ -168,31 +168,31 @@ final class HTTPClientRemoteCharactersEnd2EndTests: XCTestCase {
     
     private func modified(at index: Int) -> String {
         return [
-            "2014-04-29T14:18:17-0400",
-            "2013-09-18T15:54:04-0400",
-            "2013-10-17T14:41:30-0400",
-            "1969-12-31T19:00:00-0500",
-            "2012-03-20T12:32:12-0400",
-            "2012-07-10T19:11:52-0400",
-            "2013-10-24T14:32:08-0400",
-            "2014-04-29T14:10:43-0400",
-            "1969-12-31T19:00:00-0500",
-            "1969-12-31T19:00:00-0500",
+            "2014-04-29T14:18:17+0000",
+            "2013-09-18T15:54:04+0000",
+            "2013-10-17T14:41:30+0000",
+            "1970-01-01T00:00:00+0000",
+            "2014-06-27T19:39:07+0000",
+            "2012-07-10T19:11:52+0000",
+            "2016-05-25T12:04:23+0000",
+            "2014-04-29T14:10:43+0000",
+            "1970-01-01T00:00:00+0000",
+            "1970-01-01T00:00:00+0000",
         ][index]
     }
             
     private func resourceURI(at index: Int) -> String {
         return [
-            "http://gateway.marvel.com/v1/public/characters/1011334",
-            "http://gateway.marvel.com/v1/public/characters/1017100",
-            "http://gateway.marvel.com/v1/public/characters/1009144",
-            "http://gateway.marvel.com/v1/public/characters/1010699",
-            "http://gateway.marvel.com/v1/public/characters/1009146",
-            "http://gateway.marvel.com/v1/public/characters/1016823",
-            "http://gateway.marvel.com/v1/public/characters/1009148",
-            "http://gateway.marvel.com/v1/public/characters/1009149",
-            "http://gateway.marvel.com/v1/public/characters/1010903",
-            "http://gateway.marvel.com/v1/public/characters/1011266",
+            "https://gateway.marvel.com/v1/public/characters/1011334",
+            "https://gateway.marvel.com/v1/public/characters/1017100",
+            "https://gateway.marvel.com/v1/public/characters/1009144",
+            "https://gateway.marvel.com/v1/public/characters/1010699",
+            "https://gateway.marvel.com/v1/public/characters/1009146",
+            "https://gateway.marvel.com/v1/public/characters/1016823",
+            "https://gateway.marvel.com/v1/public/characters/1009148",
+            "https://gateway.marvel.com/v1/public/characters/1009149",
+            "https://gateway.marvel.com/v1/public/characters/1010903",
+            "https://gateway.marvel.com/v1/public/characters/1011266",
         ][index]
     }
 }
