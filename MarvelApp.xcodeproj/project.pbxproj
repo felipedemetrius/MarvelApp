@@ -88,6 +88,8 @@
 		02A4AFDE2C2CD317006DF492 /* CoreDataCharacterStore+CharacterStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A4AFDD2C2CD317006DF492 /* CoreDataCharacterStore+CharacterStore.swift */; };
 		02A4AFE32C2CD4ED006DF492 /* ManagedCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A4AFE22C2CD4ED006DF492 /* ManagedCache.swift */; };
 		02A4AFE52C2CD6CA006DF492 /* ManagedCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A4AFE42C2CD6CA006DF492 /* ManagedCharacter.swift */; };
+		02B103362DC9B372000A9791 /* ImageDataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B103352DC9B36E000A9791 /* ImageDataMapper.swift */; };
+		02B103382DCA93CF000A9791 /* ImageDataMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B103372DCA93CB000A9791 /* ImageDataMapperTests.swift */; };
 		02BFD3F42C0536E400B9234B /* MarvelLoader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02BFD3EB2C0536E300B9234B /* MarvelLoader.framework */; };
 		02BFD3F92C0536E400B9234B /* HTTPClientRemoteCharactersEnd2EndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BFD3F82C0536E400B9234B /* HTTPClientRemoteCharactersEnd2EndTests.swift */; };
 		02BFD3FA2C0536E400B9234B /* MarvelLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 02BFD3EE2C0536E300B9234B /* MarvelLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -178,7 +180,7 @@
 		021BDA062C337C9C001A0D06 /* LoadCharacterFromCacheUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadCharacterFromCacheUseCaseTests.swift; sourceTree = "<group>"; };
 		021BDA082C337D31001A0D06 /* ValidateCharacterCacheUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateCharacterCacheUseCaseTests.swift; sourceTree = "<group>"; };
 		021BDA0A2C337DC1001A0D06 /* LoadCharacterImageDataFromCacheUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadCharacterImageDataFromCacheUseCaseTests.swift; sourceTree = "<group>"; };
-		02382E102C723EFE004D7B54 /* MarveliOSUiKit.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = file; name = MarveliOSUiKit.xctestplan; path = TestsPlan/MarveliOSUiKit.xctestplan; sourceTree = SOURCE_ROOT; };
+		02382E102C723EFE004D7B54 /* MarveliOSUiKit.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = MarveliOSUiKit.xctestplan; path = TestsPlan/MarveliOSUiKit.xctestplan; sourceTree = SOURCE_ROOT; };
 		02382E122C7241CC004D7B54 /* XCTests+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTests+Extensions.swift"; sourceTree = "<group>"; };
 		02382E142C724A6D004D7B54 /* UIControl+TestsHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+TestsHelpers.swift"; sourceTree = "<group>"; };
 		02382E162C724A97004D7B54 /* UIRefreshControl+TestsHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIRefreshControl+TestsHelpers.swift"; sourceTree = "<group>"; };
@@ -235,6 +237,8 @@
 		02A4AFDD2C2CD317006DF492 /* CoreDataCharacterStore+CharacterStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataCharacterStore+CharacterStore.swift"; sourceTree = "<group>"; };
 		02A4AFE22C2CD4ED006DF492 /* ManagedCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedCache.swift; sourceTree = "<group>"; };
 		02A4AFE42C2CD6CA006DF492 /* ManagedCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedCharacter.swift; sourceTree = "<group>"; };
+		02B103352DC9B36E000A9791 /* ImageDataMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDataMapper.swift; sourceTree = "<group>"; };
+		02B103372DCA93CB000A9791 /* ImageDataMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDataMapperTests.swift; sourceTree = "<group>"; };
 		02BFD3EB2C0536E300B9234B /* MarvelLoader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MarvelLoader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		02BFD3EE2C0536E300B9234B /* MarvelLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarvelLoader.h; sourceTree = "<group>"; };
 		02BFD3F32C0536E400B9234B /* MarvelLoaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvelLoaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -634,6 +638,7 @@
 		02BFD4092C053BD200B9234B /* Characters API */ = {
 			isa = PBXGroup;
 			children = (
+				02B103352DC9B36E000A9791 /* ImageDataMapper.swift */,
 				02652F892C08E19D00A8AB21 /* Response Model */,
 				02BFD40A2C053C0600B9234B /* Domain Model */,
 				02BFD4102C053F7C00B9234B /* CharactersMapper.swift */,
@@ -704,6 +709,7 @@
 		02BFD42A2C055FF800B9234B /* Mappers */ = {
 			isa = PBXGroup;
 			children = (
+				02B103372DCA93CB000A9791 /* ImageDataMapperTests.swift */,
 				02BFD42B2C05600800B9234B /* CharactersMapperTests.swift */,
 			);
 			path = Mappers;
@@ -852,7 +858,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1520;
-				LastUpgradeCheck = 1540;
+				LastUpgradeCheck = 1620;
 				TargetAttributes = {
 					02BFD3EA2C0536E300B9234B = {
 						CreatedOnToolsVersion = 15.4;
@@ -969,6 +975,7 @@
 				02652F8D2C08E1FD00A8AB21 /* CharacterResponse.swift in Sources */,
 				02652F7D2C08B32100A8AB21 /* Endpoints.swift in Sources */,
 				02652F862C08C16E00A8AB21 /* Thumbnail.swift in Sources */,
+				02B103362DC9B372000A9791 /* ImageDataMapper.swift in Sources */,
 				02A4AFCA2C2CCD98006DF492 /* LocalCharacterImageDataLoader.swift in Sources */,
 				02BFD40F2C053E9300B9234B /* HTTPURLResponse+Extension.swift in Sources */,
 			);
@@ -993,6 +1000,7 @@
 				02BFD4342C056A0B00B9234B /* RemoteCharactersLoaderImplTests.swift in Sources */,
 				021BDA072C337C9C001A0D06 /* LoadCharacterFromCacheUseCaseTests.swift in Sources */,
 				02BFD42C2C05600800B9234B /* CharactersMapperTests.swift in Sources */,
+				02B103382DCA93CF000A9791 /* ImageDataMapperTests.swift in Sources */,
 				02BFD42F2C05633D00B9234B /* CharactersEndpointTests.swift in Sources */,
 				02BFD4312C05695800B9234B /* HTTPClientStub.swift in Sources */,
 				021BD9FF2C337937001A0D06 /* CharacterImageDataStoreSpecs.swift in Sources */,
@@ -1090,6 +1098,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -1120,6 +1129,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -1156,6 +1166,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -1186,6 +1197,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1217,6 +1229,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1255,6 +1268,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1287,9 +1301,9 @@
 		02BFD4012C0536E400B9234B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
@@ -1303,9 +1317,9 @@
 		02BFD4022C0536E400B9234B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
@@ -1320,6 +1334,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1330,7 +1345,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1356,6 +1371,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1366,7 +1382,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1391,7 +1407,6 @@
 		02CEB7E72C67EEF000F91309 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1409,7 +1424,6 @@
 		02CEB7E82C67EEF000F91309 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;

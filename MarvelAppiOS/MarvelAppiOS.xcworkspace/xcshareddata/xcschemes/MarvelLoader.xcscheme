@@ -1,47 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
    LastUpgradeVersion = "1620"
-   version = "2.1">
+   version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
-      buildImplicitDependencies = "YES">
+      buildImplicitDependencies = "YES"
+      buildArchitectures = "Automatic">
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <TestPlanReference
-               reference = "container:MarveliOSUiKit.xctestplan">
-            </TestPlanReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
             buildForRunning = "YES"
             buildForProfiling = "YES"
             buildForArchiving = "YES"
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "02CEB7D52C67EEF000F91309"
-               BuildableName = "MarveliOSUiKit.framework"
-               BlueprintName = "MarveliOSUiKit"
-               ReferencedContainer = "container:MarvelApp.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "02CEB7DC2C67EEF000F91309"
-               BuildableName = "MarveliOSUiKitTests.xctest"
-               BlueprintName = "MarveliOSUiKitTests"
-               ReferencedContainer = "container:MarvelApp.xcodeproj">
+               BlueprintIdentifier = "02BFD3EA2C0536E300B9234B"
+               BuildableName = "MarvelLoader.framework"
+               BlueprintName = "MarvelLoader"
+               ReferencedContainer = "container:../MarvelApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -50,13 +27,21 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
-      <TestPlans>
-         <TestPlanReference
-            reference = "container:TestsPlan/MarveliOSUiKit.xctestplan"
-            default = "YES">
-         </TestPlanReference>
-      </TestPlans>
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      shouldAutocreateTestPlan = "YES">
+      <Testables>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "02BFD3F22C0536E400B9234B"
+               BuildableName = "MarvelLoaderTests.xctest"
+               BlueprintName = "MarvelLoaderTests"
+               ReferencedContainer = "container:../MarvelApp.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+      </Testables>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -78,10 +63,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "02CEB7D52C67EEF000F91309"
-            BuildableName = "MarveliOSUiKit.framework"
-            BlueprintName = "MarveliOSUiKit"
-            ReferencedContainer = "container:MarvelApp.xcodeproj">
+            BlueprintIdentifier = "02BFD3EA2C0536E300B9234B"
+            BuildableName = "MarvelLoader.framework"
+            BlueprintName = "MarvelLoader"
+            ReferencedContainer = "container:../MarvelApp.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

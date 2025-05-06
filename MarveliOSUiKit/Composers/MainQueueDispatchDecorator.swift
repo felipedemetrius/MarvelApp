@@ -32,9 +32,9 @@ extension MainQueueDispatchDecorator: CharacterLoader where T == CharacterLoader
     }
 }
 
-extension MainQueueDispatchDecorator: ImageDataLoader where T == ImageDataLoader {
+extension MainQueueDispatchDecorator: ImageDataLoader where T == (URL) -> ImageDataLoader {
     func loadImageData(from url: URL, completion: @escaping (ImageDataLoader.Result) -> Void) -> ImageDataLoaderTask {
-        return decoratee.loadImageData(from: url) { [weak self] result in
+        return decoratee(url).loadImageData(from: url) { [weak self] result in
             self?.dispatch { completion(result) }
         }
     }

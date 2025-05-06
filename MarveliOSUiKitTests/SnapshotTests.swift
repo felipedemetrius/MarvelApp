@@ -55,9 +55,36 @@ class FeedUISnapshotTests: XCTestCase {
     }
     
     private func notEmptyFeed() -> [CharacterCellController] {
-        [CharacterCellController(viewModel: CharacterViewModel(model: Character(id: 0, name: "Super-man", description: "a description", modified: "", resourceURI: "", thumbnailPath: "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784", thumbnailExtension: "jpg"), imageLoader: CharacterLoaderSpy(), imageTransformer: UIImage.init)),
-         CharacterCellController(viewModel: CharacterViewModel(model: Character(id: 1, name: "Spider-man", description: "another description hehehehe", modified: "", resourceURI: "", thumbnailPath: "http://i.annihil.us/u/prod/marvel/i/mg/3/20/5232158de5b16", thumbnailExtension: "jpg"), imageLoader: CharacterLoaderSpy(), imageTransformer: UIImage.init))]
+        let spy = CharacterLoaderSpy()
+        let loader = ImageLoader(loader: spy) { url in
+            spy
+        }
+        let array = [CharacterCellController(viewModel: CharacterViewModel(model: Character(id: 0, name: "Super-man", description: "a description", modified: "", resourceURI: "", thumbnailPath: "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784", thumbnailExtension: "jpg"), imageLoader: loader.completionImage, imageTransformer: UIImage.init)),
+                     CharacterCellController(viewModel: CharacterViewModel(model: Character(id: 1, name: "Spider-man", description: "another description hehehehe", modified: "", resourceURI: "", thumbnailPath: "http://i.annihil.us/u/prod/marvel/i/mg/3/20/5232158de5b16", thumbnailExtension: "jpg"), imageLoader: loader.completionImage, imageTransformer: UIImage.init))]
+        return array
     }
+    
+    private class ImageLoader: ImageDataLoader, ImageDataLoaderTask {
+        func cancel() {
+            cancellable?.cancel()
+        }
+        
+        func loadImageData(from url: URL, completion: @escaping (ImageDataLoader.Result) -> Void) -> any MarvelLoader.ImageDataLoaderTask {
+            let cancellable = loader.loadImageData(from: url, completion: completion)
+            self.cancellable = cancellable
+            return cancellable
+        }
+        
+        private let loader: ImageDataLoader
+        private var cancellable: (any ImageDataLoaderTask)?
+        public var completionImage: ((URL) -> ImageDataLoader)
+        
+        init(loader: ImageDataLoader, completionImage: @escaping ((URL) -> ImageDataLoader)) {
+            self.loader = loader
+            self.completionImage = completionImage
+        }
+    }
+
 }
 
 private class AlwaysSucceedingFeedLoader: CharacterLoader {

@@ -12,7 +12,7 @@ public final class CharacterCell: UITableViewCell {
 
     public lazy var imageChar: UIImageView = {
         let image = UIImageView()
-        image.contentMode = .scaleAspectFit
+        image.contentMode = .scaleToFill
         image.layer.borderWidth = 0.5
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
@@ -46,17 +46,23 @@ public final class CharacterCell: UITableViewCell {
     
     public lazy var imageContainer: UIView = {
         let view = UIView()
-        view.frame.size.height = 375
-        view.frame.size.width = 375
-        view.addSubview(imageChar.makeContainer())
+        view.frame.size.height = 370
+        view.addSubview(imageChar)
         view.layer.cornerRadius = 8
         view.layer.masksToBounds = true
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .clear
         view.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            view.heightAnchor.constraint(equalToConstant: 375),
-            view.widthAnchor.constraint(equalToConstant: 375),
+            view.heightAnchor.constraint(equalToConstant: 370),
+            view.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 32),
+        ])
+        
+        NSLayoutConstraint.activate([
+            imageChar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            imageChar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            imageChar.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
+            imageChar.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
         ])
         
         retryButton.setTitle("↻", for: .normal)
@@ -64,7 +70,14 @@ public final class CharacterCell: UITableViewCell {
         retryButton.titleLabel?.font = .boldSystemFont(ofSize: 60)
         retryButton.translatesAutoresizingMaskIntoConstraints = false
 
-        view.addSubview(retryButton.makeContainer())
+        view.addSubview(retryButton)
+
+        NSLayoutConstraint.activate([
+            retryButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            retryButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            retryButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
+            retryButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
+        ])
 
         return view
     }()

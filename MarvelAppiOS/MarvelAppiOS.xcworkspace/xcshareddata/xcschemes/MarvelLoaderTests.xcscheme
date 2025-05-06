@@ -4,7 +4,8 @@
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
-      buildImplicitDependencies = "YES">
+      buildImplicitDependencies = "YES"
+      buildArchitectures = "Automatic">
    </BuildAction>
    <TestAction
       buildConfiguration = "Debug"
@@ -18,10 +19,10 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "02CEB7DC2C67EEF000F91309"
-               BuildableName = "MarveliOSUiKitTests.xctest"
-               BlueprintName = "MarveliOSUiKitTests"
-               ReferencedContainer = "container:MarvelApp.xcodeproj">
+               BlueprintIdentifier = "02BFD3F22C0536E400B9234B"
+               BuildableName = "MarvelLoaderTests.xctest"
+               BlueprintName = "MarvelLoaderTests"
+               ReferencedContainer = "container:../MarvelApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>

@@ -1,7 +1,3 @@
-//
-//  Copyright © Essential Developer. All rights reserved.
-//
-
 import UIKit
 
 extension UIView {
@@ -46,6 +42,8 @@ extension UIView {
 	}
 
 	private func stopShimmering() {
-		layer.mask = nil
+        DispatchQueue.main.async { [weak self] in
+            self?.layer.mask = nil
+        }
 	}
 }

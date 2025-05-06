@@ -12,10 +12,10 @@ import Combine
 final class CharacterViewModel<Image> {
     private var task: ImageDataLoaderTask?
     private let model: Character
-    private let imageLoader: ImageDataLoader
+    private let imageLoader: (URL) -> ImageDataLoader
     private let imageTransformer: (Data) -> Image?
 
-    init(model: Character, imageLoader: ImageDataLoader, imageTransformer: @escaping (Data) -> Image?) {
+    init(model: Character, imageLoader: @escaping (URL) -> ImageDataLoader, imageTransformer: @escaping (Data) -> Image?) {
         self.model = model
         self.imageLoader = imageLoader
         self.imageTransformer = imageTransformer
@@ -37,7 +37,7 @@ final class CharacterViewModel<Image> {
         guard let url = URL(string: model.urlImage) else { return }
         onImageLoadingStateChange.send(true)
         onShouldRetryImageLoadStateChange.send(false)
-        task = imageLoader.loadImageData(from: url) { [weak self] result in
+        task = imageLoader(url).loadImageData(from: url) { [weak self] result in
             self?.handle(result)
         }
     }
