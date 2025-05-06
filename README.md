@@ -17,7 +17,9 @@ The project is a list of Marvel characters. The project uses CoreData as a cache
 
 The project was divided into 2 modules. The first is MarvelLoader, which is the entire data provider layer. Run the module first to build the framework. The second is the MarveliOSUiKit, which is the module for specific views for iOS. Run this module to build the framework. After this, run the target MarvelAppiOS to build the app.
 
-Running the tests of MarveliOSUiKit on iPhone 15 (iOS 17.5). Because the snapshot tests was generated in this simulator.
+Running the tests of MarveliOSUiKit on iPhone 15 (iOS 17.5) simulator. Because the snapshot tests was generated in this simulator.
+
+Running the tests of MarvelLoader on Mac. Because is faster.
 
 ## Requirements
 
