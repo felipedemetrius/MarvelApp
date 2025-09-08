@@ -58,8 +58,41 @@ final class HTTPClientRemoteCharactersEnd2EndTests: XCTestCase {
         }
     }
 
+    func test_endToEndTestServerGETFeedImageDataResult_matchesFixedTestAccountData() {
+        switch getFeedImageDataResult() {
+        case let .success(data)?:
+            XCTAssertFalse(data.isEmpty, "Expected non-empty image data")
+
+        case let .failure(error)?:
+            XCTFail("Expected successful image data result, got \(error) instead")
+
+        default:
+            XCTFail("Expected successful image data result, got no result instead")
+        }
+    }
 
     // MARK: - Helpers
+    
+    private func getFeedImageDataResult(file: StaticString = #file, line: UInt = #line) -> RemoteCharacterImageDataLoader.Result? {
+        let loader = RemoteCharacterImageDataLoader(client: ephemeralClient())
+        trackForMemoryLeaks(loader, file: file, line: line)
+
+        let exp = expectation(description: "Wait for load completion")
+        let url = imageTestServerURL
+
+        var receivedResult: RemoteCharacterImageDataLoader.Result?
+        _ = loader.loadImageData(from: url) { result in
+            receivedResult = result
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 5.0)
+
+        return receivedResult
+    }
+    
+    private var imageTestServerURL: URLRequest {
+        return URLRequest(url: URL(string: "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg")!)
+    }
     
     private func charsServerURL(path: Endpoints.Paths) -> URLRequest {
         return  CharactersEndpoint.get(page: 0)

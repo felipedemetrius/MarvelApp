@@ -19,6 +19,7 @@ class HTTPClientSpy: HTTPClient {
         }
     }
 
+    private(set) var cancelledURLs = [URLRequest]()
     private var messages = [(url: URLRequest, completion: (HTTPClient.Result) -> Void)]()
 
     var requestedURLs: [URLRequest] {
@@ -27,7 +28,7 @@ class HTTPClientSpy: HTTPClient {
 
     func load(from url: URLRequest, completion: @escaping (HTTPClient.Result) -> Void) -> any APIFeed.HTTPClientTask {
         messages.append((url, completion))
-        return URLSessionTaskWrapper {  }
+        return URLSessionTaskWrapper { [weak self] in self?.cancelledURLs.append(url) }
     }
 
     func complete(with error: Error, at index: Int = 0, file: StaticString = #filePath, line: UInt = #line) {
