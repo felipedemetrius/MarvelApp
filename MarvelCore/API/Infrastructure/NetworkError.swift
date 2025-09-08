@@ -7,19 +7,19 @@
 
 import Foundation
 
-public enum NetworkErrorCases: Swift.Error {
+public enum NetworkErrorCases: Swift.Error, Equatable {
     case unexpectedValuesRepresentation
     case invalidData
     case apiError(NetworkError)
 }
 
-struct NetworkErrorResponse: Decodable {
+public struct NetworkErrorResponse: Decodable {
     let code, message: String?
 }
 
 public struct NetworkError: Hashable, Equatable {
     public let code, message: String
-    init(response: NetworkErrorResponse?) {
+    public init(response: NetworkErrorResponse?) {
         self.code = response?.code.orEmpty ?? ""
         self.message = response?.message.orEmpty ?? ""
     }

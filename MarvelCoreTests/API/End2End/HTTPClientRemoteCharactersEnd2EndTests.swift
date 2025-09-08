@@ -40,6 +40,10 @@ final class HTTPClientRemoteCharactersEnd2EndTests: XCTestCase {
             XCTFail("Expected failure feed result, got characters instead")
 
         case let .failure(error)?:
+            guard let error = error as? NetworkErrorCases else {
+                XCTFail("Expected failture with error, got no NetworkErrorCases instead")
+                return
+            }
             switch error {
             case .apiError(let error):
                 XCTAssertNotNil(error)
@@ -62,11 +66,11 @@ final class HTTPClientRemoteCharactersEnd2EndTests: XCTestCase {
             .url(path: path)
     }
 
-    private func getCharactersResult(path: Endpoints.Paths, file: StaticString = #filePath, line: UInt = #line) -> Swift.Result<[Character], NetworkErrorCases>? {
+    private func getCharactersResult(path: Endpoints.Paths, file: StaticString = #filePath, line: UInt = #line) -> Swift.Result<[Character], Error>? {
         let client = ephemeralClient()
         let exp = expectation(description: "Wait for load completion")
         
-        var receivedResult: Swift.Result<[Character], NetworkErrorCases>?
+        var receivedResult: Swift.Result<[Character], Error>?
         client.load(from: charsServerURL(path: path)) { result in
             receivedResult = result
                 .mapError({ error -> NetworkErrorCases in
