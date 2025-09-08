@@ -59,3 +59,20 @@ private extension Array where Element == LocalCharacter {
         return map { Character(id: $0.id, name: $0.name, description: $0.description, modified: $0.modified, resourceURI: $0.resourceURI, thumbnailPath: $0.thumbnail.path, thumbnailExtension: $0.thumbnail.thumbnailExtension) }
     }
 }
+
+extension LocalCharacterLoader: CharacterLoader {
+    public enum LoadError: Error {
+        case failed
+        case notFound
+    }
+        
+    public func load(completion: @escaping (CharacterLoader.Result) -> Void) {
+        do {
+            let results = try self.load()
+            completion(.success(results))
+            
+        } catch {
+            completion(.failure(LoadError.failed))
+        }
+    }
+}

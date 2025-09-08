@@ -48,3 +48,25 @@ extension LocalCharacterImageDataLoader: CharacterImageDataLoader {
         throw LoadError.notFound
     }
 }
+
+extension LocalCharacterImageDataLoader: ImageDataLoader {
+        
+    private final class TaskWrapper: ImageDataLoaderTask {
+
+        init() {}
+
+        func cancel() {}
+    }
+
+    
+    public func loadImageData(from url: URLRequest, completion: @escaping (ImageDataLoader.Result) -> Void) -> ImageDataLoaderTask {
+        do {
+            if let imageData = try store.retrieve(dataForURL: url.url!) {
+                completion(.success(imageData))
+            }
+        } catch {
+            completion(.failure(LoadError.failed))
+        }
+        return TaskWrapper()
+    }
+}
