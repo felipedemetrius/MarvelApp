@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct Endpoints {
-    static let baseURL = URL(string: "https://gateway.marvel.com")!
+public struct Endpoints {
+    public static let baseURL = URL(string: "https://gateway.marvel.com")!
 
-    enum Paths: String {
+    public enum Paths: String {
         case characters = "/v1/public/characters"
         case invalidPath = "/v1/public/characterssss"
     }

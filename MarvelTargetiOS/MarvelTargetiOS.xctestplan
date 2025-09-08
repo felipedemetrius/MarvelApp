@@ -1,0 +1,51 @@
+{
+  "configurations" : [
+    {
+      "id" : "5456F4AE-E0DA-47CD-8C51-26AB5A587277",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:MarvelTargetiOS.xcodeproj",
+      "identifier" : "020FC9BA2E6F77B800609CE6",
+      "name" : "MarvelTargetiOS"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:..\/MarvelApp.xcodeproj",
+        "identifier" : "02BFD3F22C0536E400B9234B",
+        "name" : "MarvelCoreTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:MarvelTargetiOS.xcodeproj",
+        "identifier" : "020FC9D02E6F77BC00609CE6",
+        "name" : "MarvelTargetiOSTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:..\/MarvelApp.xcodeproj",
+        "identifier" : "02CEB7DC2C67EEF000F91309",
+        "name" : "MarveliOSUiKitTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:MarvelTargetiOS.xcodeproj",
+        "identifier" : "020FC9DA2E6F77BC00609CE6",
+        "name" : "MarvelTargetiOSUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

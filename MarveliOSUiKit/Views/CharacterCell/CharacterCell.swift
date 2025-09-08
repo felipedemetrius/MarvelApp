@@ -12,7 +12,7 @@ public final class CharacterCell: UITableViewCell {
 
     public lazy var imageChar: UIImageView = {
         let image = UIImageView()
-        image.contentMode = .scaleAspectFit
+        image.contentMode = .scaleAspectFill
         image.layer.borderWidth = 0.5
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
@@ -48,7 +48,7 @@ public final class CharacterCell: UITableViewCell {
         let view = UIView()
         view.frame.size.height = 375
         view.frame.size.width = 375
-        view.addSubview(imageChar.makeContainer())
+        view.addSubview(imageChar)
         view.layer.cornerRadius = 8
         view.layer.masksToBounds = true
         view.backgroundColor = .lightGray
@@ -114,6 +114,13 @@ public final class CharacterCell: UITableViewCell {
     }
 
     private func installConstraints() {
+        NSLayoutConstraint.activate([
+            imageChar.leadingAnchor.constraint(equalTo: imageContainer.leadingAnchor),
+            imageContainer.trailingAnchor.constraint(equalTo: imageChar.trailingAnchor),
+            imageChar.topAnchor.constraint(equalTo: imageContainer.topAnchor),
+            imageContainer.bottomAnchor.constraint(equalTo: imageChar.bottomAnchor),
+        ])
+
         NSLayoutConstraint.activate([
             stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),

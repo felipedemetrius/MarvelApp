@@ -6,24 +6,25 @@
 //
 
 import Foundation
+import FeatureFeed
 
-public final class RemoteCharacterImageDataLoader: CharacterImageDataLoader {
+public final class RemoteCharacterImageDataLoader: ImageDataLoader {
     private let client: HTTPClient
 
     public init(client: HTTPClient) {
         self.client = client
     }
 
-    private final class HTTPClientTaskWrapper: CharacterImageDataLoaderTask {
-        private var completion: ((CharacterImageDataLoader.Result) -> Void)?
+    private final class HTTPClientTaskWrapper: ImageDataLoaderTask {
+        private var completion: ((ImageDataLoader.Result) -> Void)?
 
         var wrapped: HTTPClientTask?
 
-        init(_ completion: @escaping (CharacterImageDataLoader.Result) -> Void) {
+        init(_ completion: @escaping (ImageDataLoader.Result) -> Void) {
             self.completion = completion
         }
 
-        func complete(with result: CharacterImageDataLoader.Result) {
+        func complete(with result: ImageDataLoader.Result) {
             completion?(result)
         }
 
@@ -37,7 +38,7 @@ public final class RemoteCharacterImageDataLoader: CharacterImageDataLoader {
         }
     }
 
-    public func loadImageData(from url: URLRequest, completion: @escaping (CharacterImageDataLoader.Result) -> Void) -> CharacterImageDataLoaderTask {
+    public func loadImageData(from url: URLRequest, completion: @escaping (ImageDataLoader.Result) -> Void) -> ImageDataLoaderTask {
         let task = HTTPClientTaskWrapper(completion)
         task.wrapped = client.load(from: url) { [weak self] result in
             guard self != nil else { return }

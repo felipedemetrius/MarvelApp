@@ -8,7 +8,7 @@
 import Foundation
 
 extension URLComponents {
-    static func makeURL(path: Endpoints.Paths, page: Int? = nil) -> URL {
+    public static func makeURL(path: Endpoints.Paths, page: Int? = nil) -> URL {
         var components = URLComponents()
         components.scheme = Endpoints.baseURL.scheme
         components.host = Endpoints.baseURL.host

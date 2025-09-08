@@ -37,7 +37,8 @@ final class CharacterViewModel<Image> {
         guard let url = URL(string: model.urlImage) else { return }
         onImageLoadingStateChange.send(true)
         onShouldRetryImageLoadStateChange.send(false)
-        task = imageLoader.loadImageData(from: url) { [weak self] result in
+        let request = URLRequest(url: url)
+        task = imageLoader.loadImageData(from: request) { [weak self] result in
             self?.handle(result)
         }
     }

@@ -375,9 +375,9 @@ final class CharacterLoaderSpy: CharacterLoader, ImageDataLoader {
 
     private(set) var cancelledImageURLs = [URL]()
 
-    func loadImageData(from url: URL, completion: @escaping (ImageDataLoader.Result) -> Void) -> ImageDataLoaderTask {
-        imageRequests.append((url, completion))
-        return TaskSpy { [weak self] in self?.cancelledImageURLs.append(url) }
+    func loadImageData(from url: URLRequest, completion: @escaping (ImageDataLoader.Result) -> Void) -> any FeatureFeed.ImageDataLoaderTask {
+        imageRequests.append((url.url!, completion))
+        return TaskSpy { [weak self] in self?.cancelledImageURLs.append(url.url!) }
     }
 
     func completeImageLoading(with imageData: Data = Data(), at index: Int = 0) {

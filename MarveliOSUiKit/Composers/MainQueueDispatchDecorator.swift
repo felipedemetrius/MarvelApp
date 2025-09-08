@@ -33,7 +33,7 @@ extension MainQueueDispatchDecorator: CharacterLoader where T == CharacterLoader
 }
 
 extension MainQueueDispatchDecorator: ImageDataLoader where T == ImageDataLoader {
-    func loadImageData(from url: URL, completion: @escaping (ImageDataLoader.Result) -> Void) -> ImageDataLoaderTask {
+    func loadImageData(from url: URLRequest, completion: @escaping (ImageDataLoader.Result) -> Void) -> any FeatureFeed.ImageDataLoaderTask {
         return decoratee.loadImageData(from: url) { [weak self] result in
             self?.dispatch { completion(result) }
         }
