@@ -6,7 +6,7 @@
 //
 
 import XCTest
-import MarvelLoader
+import FeatureFeed
 @testable import MarveliOSUiKit
 
 class FeedUISnapshotTests: XCTestCase {
@@ -17,6 +17,10 @@ class FeedUISnapshotTests: XCTestCase {
         
         assert(snapshot: sut.snapshot(for: .iPhone(style: .light)), named: "EMPTY_FEED_light")
         assert(snapshot: sut.snapshot(for: .iPhone(style: .dark)), named: "EMPTY_FEED_dark")
+        
+//        record(snapshot: sut.snapshot(for: .iPhone(style: .light)), named: "EMPTY_FEED_light")
+//        record(snapshot: sut.snapshot(for: .iPhone(style: .dark)), named: "EMPTY_FEED_dark")
+
     }
 
     func test_feedWithError() {
@@ -26,6 +30,10 @@ class FeedUISnapshotTests: XCTestCase {
 
         assert(snapshot: sut.snapshot(for: .iPhone(style: .light)), named: "FEED_WITH_ERROR_light")
         assert(snapshot: sut.snapshot(for: .iPhone(style: .dark)), named: "FEED_WITH_ERROR_dark")
+        
+//        record(snapshot: sut.snapshot(for: .iPhone(style: .light)), named: "FEED_WITH_ERROR_light")
+//        record(snapshot: sut.snapshot(for: .iPhone(style: .dark)), named: "FEED_WITH_ERROR_dark")
+
     }
 
     func test_notEmptyFeed() {
@@ -33,8 +41,8 @@ class FeedUISnapshotTests: XCTestCase {
 
         sut.display(notEmptyFeed())
         
-        //record(snapshot: sut.snapshot(for: .iPhone(style: .light)), named: "NOT_EMPTY_FEED_light")
-        //record(snapshot: sut.snapshot(for: .iPhone(style: .dark)), named: "NOT_EMPTY_FEED_dark")
+//        record(snapshot: sut.snapshot(for: .iPhone(style: .light)), named: "NOT_EMPTY_FEED_light")
+//        record(snapshot: sut.snapshot(for: .iPhone(style: .dark)), named: "NOT_EMPTY_FEED_dark")
 
         assert(snapshot: sut.snapshot(for: .iPhone(style: .light)), named: "NOT_EMPTY_FEED_light")
         assert(snapshot: sut.snapshot(for: .iPhone(style: .dark)), named: "NOT_EMPTY_FEED_dark")

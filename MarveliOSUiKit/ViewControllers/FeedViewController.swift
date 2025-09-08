@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import MarvelLoader
 import Combine
 
 public final class FeedViewController: UITableViewController, UITableViewDataSourcePrefetching {

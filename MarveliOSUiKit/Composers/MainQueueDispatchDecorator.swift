@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import MarvelLoader
+import FeatureFeed
 
 final class MainQueueDispatchDecorator<T> {
     private let decoratee: T

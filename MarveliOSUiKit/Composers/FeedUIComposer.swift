@@ -6,8 +6,8 @@
 //
 
 import UIKit
-import MarvelLoader
 import Combine
+import FeatureFeed
 
 public final class FeedUIComposer {
     private init() {}

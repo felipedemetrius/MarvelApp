@@ -6,8 +6,8 @@
 //
 
 import Foundation
-import MarvelLoader
 import Combine
+import FeatureFeed
 
 final class CharacterViewModel<Image> {
     private var task: ImageDataLoaderTask?

@@ -6,8 +6,8 @@
 //
 
 import XCTest
-import MarvelLoader
 import MarveliOSUiKit
+import FeatureFeed
 
 extension FeedViewControllerTests {
     func assertThat(_ sut: FeedViewController, isRendering feed: [Character], file: StaticString = #filePath, line: UInt = #line) {

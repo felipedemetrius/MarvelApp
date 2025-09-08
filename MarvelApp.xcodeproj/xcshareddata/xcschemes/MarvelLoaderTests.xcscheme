@@ -20,8 +20,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "02BFD3F22C0536E400B9234B"
-               BuildableName = "MarvelLoaderTests.xctest"
-               BlueprintName = "MarvelLoaderTests"
+               BuildableName = "MarvelCoreTests.xctest"
+               BlueprintName = "MarvelCoreTests"
                ReferencedContainer = "container:MarvelApp.xcodeproj">
             </BuildableReference>
          </TestableReference>

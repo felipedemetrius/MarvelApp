@@ -21,7 +21,7 @@ struct SnapshotConfiguration {
 
     static func iPhone(style: UIUserInterfaceStyle) -> SnapshotConfiguration {
         return SnapshotConfiguration(
-            size: CGSize(width: 390, height: 844),
+            size: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height),
             safeAreaInsets: UIEdgeInsets(top: 47, left: 0, bottom: 34, right: 0),
             layoutMargins: UIEdgeInsets(top: 55, left: 8, bottom: 42, right: 8),
             traitCollection: UITraitCollection(mutations: { traits in

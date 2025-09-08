@@ -6,8 +6,8 @@
 //
 
 import Foundation
-import MarvelLoader
 import Combine
+import FeatureFeed
 
 public final class FeedViewModel {
     private let feedLoader: CharacterLoader
