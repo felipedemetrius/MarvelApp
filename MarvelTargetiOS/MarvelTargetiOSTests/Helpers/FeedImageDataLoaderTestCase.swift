@@ -1,0 +1,36 @@
+//
+//  FeedImageDataLoaderTestCase.swift
+//  MarvelTargetiOS
+//
+//  Created by Felipe Demetrius Martins da Silva on 08/09/25.
+//
+
+import XCTest
+import FeatureFeed
+
+protocol FeedImageDataLoaderTestCase: XCTestCase {}
+
+extension FeedImageDataLoaderTestCase {
+    func expect(_ sut: ImageDataLoader, toCompleteWith expectedResult: ImageDataLoader.Result, when action: () -> Void, file: StaticString = #file, line: UInt = #line) {
+        let exp = expectation(description: "Wait for load completion")
+
+        _ = sut.loadImageData(from: anyURLRequest()) { receivedResult in
+            switch (receivedResult, expectedResult) {
+            case let (.success(receivedFeed), .success(expectedFeed)):
+                XCTAssertEqual(receivedFeed, expectedFeed, file: file, line: line)
+
+            case (.failure, .failure):
+                break
+
+            default:
+                XCTFail("Expected \(expectedResult), got \(receivedResult) instead", file: file, line: line)
+            }
+
+            exp.fulfill()
+        }
+
+        action()
+
+        wait(for: [exp], timeout: 1.0)
+    }
+}

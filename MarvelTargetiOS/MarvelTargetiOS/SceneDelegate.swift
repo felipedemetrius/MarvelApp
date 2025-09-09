@@ -54,24 +54,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let imageDataLoader = RemoteCharacterImageDataLoader(client: httpClient)
         let remoteFeedLoader = RemoteCharacterLoader(url: baseURL, client: httpClient)
-        
-        let compositeFeedLoader = FeedLoaderWithFallbackComposite(
-            primary: remoteFeedLoader,
-            fallback: localFeedLoader
-        )
-        
         let localImageLoader = LocalCharacterImageDataLoader(store: store)
-
-        let compositeImageDataLoader = CharacterImageDataLoaderWithFallbackComposite(
-            primary: imageDataLoader,
-            fallback: localImageLoader
-        )
         
         let viewController = FeedUIComposer.feedComposedWith(
-            feedLoader: compositeFeedLoader,
-            imageLoader: compositeImageDataLoader
-        )
-            
+                    feedLoader: FeedLoaderWithFallbackComposite(
+                        primary: FeedLoaderCacheDecorator(
+                            decoratee: remoteFeedLoader,
+                            cache: localFeedLoader),
+                        fallback: localFeedLoader),
+                    imageLoader: CharacterImageDataLoaderWithFallbackComposite(
+                        primary: localImageLoader,
+                        fallback: FeedImageDataLoaderCacheDecorator(
+                            decoratee: imageDataLoader,
+                            cache: localImageLoader)))
+        
         let navigationController = UINavigationController(rootViewController: viewController)
 
         window?.rootViewController = navigationController
