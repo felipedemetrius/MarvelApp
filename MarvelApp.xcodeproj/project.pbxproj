@@ -98,8 +98,6 @@
 		02382E362C7278F6004D7B54 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 02382E382C7278F7004D7B54 /* Localizable.strings */; };
 		02382E3B2C727991004D7B54 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02382E3A2C727991004D7B54 /* FeedViewModel.swift */; };
 		02382E472C72897B004D7B54 /* UIView+Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02382E462C72897B004D7B54 /* UIView+Container.swift */; };
-		02382E4A2C728ABE004D7B54 /* FeedUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02382E492C728ABE004D7B54 /* FeedUIComposer.swift */; };
-		02382E4C2C728AEA004D7B54 /* MainQueueDispatchDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02382E4B2C728AEA004D7B54 /* MainQueueDispatchDecorator.swift */; };
 		02382E4E2C72ABAE004D7B54 /* XCTests+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02382E4D2C72ABAE004D7B54 /* XCTests+Snapshot.swift */; };
 		02382E502C72ABC9004D7B54 /* SnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02382E4F2C72ABC9004D7B54 /* SnapshotTests.swift */; };
 		02382E522C72AC6B004D7B54 /* UIViewController+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02382E512C72AC6B004D7B54 /* UIViewController+Snapshot.swift */; };
@@ -266,8 +264,6 @@
 		02382E392C7278F9004D7B54 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		02382E3A2C727991004D7B54 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		02382E462C72897B004D7B54 /* UIView+Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Container.swift"; sourceTree = "<group>"; };
-		02382E492C728ABE004D7B54 /* FeedUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedUIComposer.swift; sourceTree = "<group>"; };
-		02382E4B2C728AEA004D7B54 /* MainQueueDispatchDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainQueueDispatchDecorator.swift; sourceTree = "<group>"; };
 		02382E4D2C72ABAE004D7B54 /* XCTests+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTests+Snapshot.swift"; sourceTree = "<group>"; };
 		02382E4F2C72ABC9004D7B54 /* SnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotTests.swift; sourceTree = "<group>"; };
 		02382E512C72AC6B004D7B54 /* UIViewController+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Snapshot.swift"; sourceTree = "<group>"; };
@@ -542,15 +538,6 @@
 			path = Strings;
 			sourceTree = "<group>";
 		};
-		02382E482C728AAC004D7B54 /* Composers */ = {
-			isa = PBXGroup;
-			children = (
-				02382E492C728ABE004D7B54 /* FeedUIComposer.swift */,
-				02382E4B2C728AEA004D7B54 /* MainQueueDispatchDecorator.swift */,
-			);
-			path = Composers;
-			sourceTree = "<group>";
-		};
 		02652F7B2C08B30900A8AB21 /* Endpoints */ = {
 			isa = PBXGroup;
 			children = (
@@ -815,7 +802,6 @@
 		02CEB7D72C67EEF000F91309 /* MarveliOSUiKit */ = {
 			isa = PBXGroup;
 			children = (
-				02382E482C728AAC004D7B54 /* Composers */,
 				02382E312C727772004D7B54 /* Strings */,
 				02382E1D2C726317004D7B54 /* Views */,
 				02382E1A2C7261BE004D7B54 /* ViewControllers */,
@@ -1207,8 +1193,6 @@
 				02382E472C72897B004D7B54 /* UIView+Container.swift in Sources */,
 				02382E272C727316004D7B54 /* CharacterCellController.swift in Sources */,
 				02382E3B2C727991004D7B54 /* FeedViewModel.swift in Sources */,
-				02382E4A2C728ABE004D7B54 /* FeedUIComposer.swift in Sources */,
-				02382E4C2C728AEA004D7B54 /* MainQueueDispatchDecorator.swift in Sources */,
 				02382E332C727782004D7B54 /* Localized.swift in Sources */,
 				02382E232C7263B4004D7B54 /* CharacterCell.swift in Sources */,
 				02382E302C72759A004D7B54 /* UIView+Shimmering.swift in Sources */,
