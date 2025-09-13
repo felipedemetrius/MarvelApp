@@ -18,22 +18,7 @@ final class FeedViewControllerTests: XCTestCase {
         
         XCTAssertEqual(loader.count, 0)
     }
-    
-    func test_viewDidLoad_LoadsFeedCountFromReload() {
-        let (sut, loader) = makeSUT()
-
-        XCTAssertEqual(loader.count, 0)
-
-        sut.simulateAppearance()
-        XCTAssertEqual(loader.count, 1)
-
-        sut.simulateUserInitiatedFeedReload()
-        XCTAssertEqual(loader.count, 2)
         
-        sut.simulateUserInitiatedFeedReload()
-        XCTAssertEqual(loader.count, 3)
-    }
-    
     func test_pullRefreshBehavior() {
         let (sut, loader) = makeSUT()
 
@@ -308,7 +293,7 @@ final class FeedViewControllerTests: XCTestCase {
     
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: FeedViewController, loader: CharacterLoaderSpy) {
         let loader = CharacterLoaderSpy()
-        let sut = FeedUIComposer.feedComposedWith(feedLoader: loader, imageLoader: loader)
+        let sut = FeedUIComposer.feedComposedWith(feedLoader: loader.loadPublisher, imageLoader: loader.loadImageDataPublisher(from:))
         trackForMemoryLeaks(loader, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
         return (sut, loader)
@@ -324,50 +309,53 @@ final class FeedViewControllerTests: XCTestCase {
 }
 
 final class CharacterLoaderSpy: CharacterLoader, ImageDataLoader {
-    var count: Int {
-        completions.count
-    }
+    // MARK: - CharacterLoader
     
-    private(set) var completions: [(CharacterLoader.Result) -> Void] = []
+    private var feedRequests = [(CharacterLoader.Result) -> Void]()
+    
+    var count: Int {
+        return feedRequests.count
+    }
     
     func load(completion: @escaping (CharacterLoader.Result) -> Void) {
-        completions.append(completion)
+        feedRequests.append(completion)
     }
     
-    func completeLoading(with feed: [Character] = [], at index: Int) {
-        completions[index](.success(feed))
+    func completeLoading(with feed: [Character] = [], at index: Int = 0) {
+        feedRequests[index](.success(feed))
     }
     
-    func completeLoadingError(at index: Int) {
-        completions[index](.failure(NSError(domain: "", code: 0)))
+    func completeLoadingError(at index: Int = 0) {
+        let error = NSError(domain: "an error", code: 0)
+        feedRequests[index](.failure(error))
     }
     
-    // MARK: - FeedImageDataLoader
-
+    // MARK: - ImageDataLoader
+    
     private struct TaskSpy: ImageDataLoaderTask {
         let cancelCallback: () -> Void
         func cancel() {
             cancelCallback()
         }
     }
-
+    
     private var imageRequests = [(url: URL, completion: (ImageDataLoader.Result) -> Void)]()
-
+    
     var loadedImageURLs: [URL] {
         return imageRequests.map { $0.url }
     }
-
+    
     private(set) var cancelledImageURLs = [URL]()
-
-    func loadImageData(from url: URLRequest, completion: @escaping (ImageDataLoader.Result) -> Void) -> any FeatureFeed.ImageDataLoaderTask {
+    
+    func loadImageData(from url: URLRequest, completion: @escaping (ImageDataLoader.Result) -> Void) -> ImageDataLoaderTask {
         imageRequests.append((url.url!, completion))
         return TaskSpy { [weak self] in self?.cancelledImageURLs.append(url.url!) }
     }
-
+    
     func completeImageLoading(with imageData: Data = Data(), at index: Int = 0) {
         imageRequests[index].completion(.success(imageData))
     }
-
+    
     func completeImageLoadingWithError(at index: Int = 0) {
         let error = NSError(domain: "an error", code: 0)
         imageRequests[index].completion(.failure(error))

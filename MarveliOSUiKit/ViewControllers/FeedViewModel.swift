@@ -16,15 +16,13 @@ public final class FeedViewModel {
         self.feedLoader = feedLoader
     }
 
-    var title: String {
-        Localized.Feed.title
-    }
+    public var title: String = Localized.Feed.title
 
-    var onLoadingStateChange = PassthroughSubject<Bool, Never>()
+    public var onLoadingStateChange = PassthroughSubject<Bool, Never>()
     public var onFeedLoad: (([Character]) -> Void)?
-    var onErrorStateChange = PassthroughSubject<String?, Never>()
+    public var onErrorStateChange = PassthroughSubject<String?, Never>()
 
-    func loadFeed() {
+    public func loadFeed() {
         onLoadingStateChange.send(true)
         feedLoader.load { [weak self] result in
             switch result {

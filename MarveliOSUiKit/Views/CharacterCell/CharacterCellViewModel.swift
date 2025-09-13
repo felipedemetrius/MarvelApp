@@ -29,11 +29,11 @@ public final class CharacterViewModel<Image> {
         return model.name
     }
 
-    var onImageLoad = PassthroughSubject<Image, Never>()
-    var onImageLoadingStateChange = PassthroughSubject<Bool, Never>()
-    var onShouldRetryImageLoadStateChange = PassthroughSubject<Bool, Never>()
+    public var onImageLoad = PassthroughSubject<Image, Never>()
+    public var onImageLoadingStateChange = PassthroughSubject<Bool, Never>()
+    public var onShouldRetryImageLoadStateChange = PassthroughSubject<Bool, Never>()
 
-    func loadImageData() {
+    public func loadImageData() {
         guard let url = URL(string: model.urlImage) else { return }
         onImageLoadingStateChange.send(true)
         onShouldRetryImageLoadStateChange.send(false)

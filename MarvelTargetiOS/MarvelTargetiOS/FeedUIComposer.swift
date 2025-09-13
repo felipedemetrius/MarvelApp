@@ -13,25 +13,45 @@ import MarveliOSUiKit
 public final class FeedUIComposer {
     private init() {}
     
-    public static func feedComposedWith(feedLoader: CharacterLoader, imageLoader: ImageDataLoader) -> FeedViewController {
+    public static func feedComposedWith(
+        feedLoader:  @escaping () -> CharacterLoader.Publisher,
+        imageLoader:  @escaping (URLRequest) -> ImageDataLoader.Publisher
+    ) -> FeedViewController {
         
-        let feedViewModel = FeedViewModel(
-            feedLoader: MainQueueDispatchDecorator(decoratee: feedLoader))
+        let feedViewModelAdapter = FeedViewModelAdapter(loader: feedLoader)
 
-        let feedController = FeedViewController(viewModel: feedViewModel)
-                
-        feedViewModel.onFeedLoad = adaptFeedToCellControllers(forwardingTo: feedController, imageLoader: MainQueueDispatchDecorator(decoratee: imageLoader))
+        let viewModel = FeedViewModel(feedLoader: feedViewModelAdapter)
         
+        feedViewModelAdapter.viewModel = viewModel
+
+        let feedController = FeedViewController(viewModel: viewModel)
+        
+        viewModel.onFeedLoad = adaptFeedToCellControllers(
+            forwardingTo: feedController,
+            imageLoader: imageLoader
+        )
+
         return feedController
     }
 
-    private static func adaptFeedToCellControllers(forwardingTo controller: FeedViewController, imageLoader: ImageDataLoader) -> (([Character]) -> Void) {
+    private static func adaptFeedToCellControllers(
+        forwardingTo controller: FeedViewController,
+        imageLoader: @escaping (URLRequest) -> ImageDataLoader.Publisher) -> (([Character]) -> Void) {
         return { [weak controller, imageLoader] feed in
-            controller?.tableModel = feed.map { model in
-                CharacterCellController(viewModel:
-                                            CharacterViewModel(model: model, imageLoader: imageLoader, imageTransformer: UIImage.init))
+            controller?.setTableModel(feed.map { model in
+                let adapter = ImageViewModelAdapter(
+                    model: model,
+                    loader: imageLoader)
                 
-            }
+                let viewModel = CharacterViewModel(model: model,
+                                                   imageLoader: adapter,
+                                                   imageTransformer: UIImage.init)
+                
+                adapter.viewModel = viewModel
+                
+                
+                return CharacterCellController(viewModel: viewModel)
+            })
         }
     }
 }

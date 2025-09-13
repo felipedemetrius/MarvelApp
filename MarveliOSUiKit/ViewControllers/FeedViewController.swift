@@ -15,8 +15,15 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
 
     var viewModel: FeedViewModel?
     
+    private var loadingControllers = [IndexPath: CharacterCellController]()
+    
     public var tableModel = [CharacterCellController]() {
         didSet { tableView.reloadData() }
+    }
+    
+    public func setTableModel(_ tableModel: [CharacterCellController]) {
+        loadingControllers = [:]
+        self.tableModel = tableModel
     }
 
     public convenience init (viewModel: FeedViewModel) {
@@ -92,31 +99,34 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableModel.count
     }
-
+    
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return cellController(forRowAt: indexPath).view(in: tableView)
     }
-
+    
     public override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cancelCellControllerLoad(forRowAt: indexPath)
     }
-
+    
     public func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         indexPaths.forEach { indexPath in
             cellController(forRowAt: indexPath).preload()
         }
     }
-
+    
     public func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
         indexPaths.forEach(cancelCellControllerLoad)
     }
-
+    
     private func cellController(forRowAt indexPath: IndexPath) -> CharacterCellController {
-        return tableModel[indexPath.row]
+        let controller = tableModel[indexPath.row]
+        loadingControllers[indexPath] = controller
+        return controller
     }
-
+    
     private func cancelCellControllerLoad(forRowAt indexPath: IndexPath) {
-        cellController(forRowAt: indexPath).cancelLoad()
+        loadingControllers[indexPath]?.cancelLoad()
+        loadingControllers[indexPath] = nil
     }
 
 }

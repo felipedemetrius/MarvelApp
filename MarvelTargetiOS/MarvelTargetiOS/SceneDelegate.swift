@@ -11,6 +11,7 @@ import MarveliOSUiKit
 import APIFeed
 import CacheFeed
 import CoreData
+import FeatureFeed
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -42,6 +43,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private lazy var localFeedLoader: LocalCharacterLoader = {
         LocalCharacterLoader(store: store, currentDate: Date.init)
     }()
+    
+    private lazy var remoteFeedLoader: RemoteCharacterLoader = {
+        RemoteCharacterLoader(url: baseURL, client: httpClient)
+    }()
+
+    func sceneWillResignActive(_ scene: UIScene) {
+        try? localFeedLoader.validateCache()
+    }
+    
+    convenience init(httpClient: HTTPClient, store: CharacterStore & CharacterImageDataStore) {
+        self.init()
+        self.httpClient = httpClient
+        self.store = store
+    }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = (scene as? UIWindowScene) else { return }
@@ -52,21 +67,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func configureWindow() {
         
-        let imageDataLoader = RemoteCharacterImageDataLoader(client: httpClient)
-        let remoteFeedLoader = RemoteCharacterLoader(url: baseURL, client: httpClient)
-        let localImageLoader = LocalCharacterImageDataLoader(store: store)
-        
         let viewController = FeedUIComposer.feedComposedWith(
-                    feedLoader: FeedLoaderWithFallbackComposite(
-                        primary: FeedLoaderCacheDecorator(
-                            decoratee: remoteFeedLoader,
-                            cache: localFeedLoader),
-                        fallback: localFeedLoader),
-                    imageLoader: CharacterImageDataLoaderWithFallbackComposite(
-                        primary: localImageLoader,
-                        fallback: FeedImageDataLoaderCacheDecorator(
-                            decoratee: imageDataLoader,
-                            cache: localImageLoader)))
+            feedLoader: makeRemoteFeedLoaderWithLocalFallback,
+            imageLoader: makeLocalImageLoaderWithRemoteFallback
+        )
         
         let navigationController = UINavigationController(rootViewController: viewController)
 
@@ -74,5 +78,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
     }
 
+    private func makeRemoteFeedLoaderWithLocalFallback() -> CharacterLoader.Publisher {
+        return remoteFeedLoader
+            .loadPublisher()
+            .caching(to: localFeedLoader)
+            .fallback(to: localFeedLoader.loadPublisher)
+    }
+
+    private func makeLocalImageLoaderWithRemoteFallback(url: URLRequest) -> ImageDataLoader.Publisher {
+        let remoteImageLoader = RemoteCharacterImageDataLoader(client: httpClient)
+        let localImageLoader = LocalCharacterImageDataLoader(store: store)
+
+        return localImageLoader
+            .loadImageDataPublisher(from: url)
+            .fallback(to: {
+                remoteImageLoader
+                    .loadImageDataPublisher(from: url)
+                    .caching(to: localImageLoader, using: url.url!)
+            })
+    }
 }
 
