@@ -8,12 +8,12 @@
 import UIKit
 import Combine
 
-final class CharacterCellController {
+public final class CharacterCellController {
     private var bag = Set<AnyCancellable>()
     private let viewModel: CharacterViewModel<UIImage>
     private var cell: CharacterCell?
 
-    init(viewModel: CharacterViewModel<UIImage>) {
+    public init(viewModel: CharacterViewModel<UIImage>) {
         self.viewModel = viewModel
     }
 

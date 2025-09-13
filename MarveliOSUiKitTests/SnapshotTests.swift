@@ -83,3 +83,97 @@ private extension FeedViewController {
         tableModel = feed
     }
 }
+
+final class CharacterLoaderSpy: CharacterLoader, ImageDataLoader {
+    var count: Int {
+        completions.count
+    }
+    
+    private(set) var completions: [(CharacterLoader.Result) -> Void] = []
+    
+    func load(completion: @escaping (CharacterLoader.Result) -> Void) {
+        completions.append(completion)
+    }
+    
+    func completeLoading(with feed: [Character] = [], at index: Int) {
+        completions[index](.success(feed))
+    }
+    
+    func completeLoadingError(at index: Int) {
+        completions[index](.failure(NSError(domain: "", code: 0)))
+    }
+    
+    // MARK: - FeedImageDataLoader
+
+    private struct TaskSpy: ImageDataLoaderTask {
+        let cancelCallback: () -> Void
+        func cancel() {
+            cancelCallback()
+        }
+    }
+
+    private var imageRequests = [(url: URL, completion: (ImageDataLoader.Result) -> Void)]()
+
+    var loadedImageURLs: [URL] {
+        return imageRequests.map { $0.url }
+    }
+
+    private(set) var cancelledImageURLs = [URL]()
+
+    func loadImageData(from url: URLRequest, completion: @escaping (ImageDataLoader.Result) -> Void) -> any FeatureFeed.ImageDataLoaderTask {
+        imageRequests.append((url.url!, completion))
+        return TaskSpy { [weak self] in self?.cancelledImageURLs.append(url.url!) }
+    }
+
+    func completeImageLoading(with imageData: Data = Data(), at index: Int = 0) {
+        imageRequests[index].completion(.success(imageData))
+    }
+
+    func completeImageLoadingWithError(at index: Int = 0) {
+        let error = NSError(domain: "an error", code: 0)
+        imageRequests[index].completion(.failure(error))
+    }
+
+}
+
+extension FeedViewController {
+    func simulateAppearance() {
+        if !isViewLoaded {
+            loadViewIfNeeded()
+            prepareForFirstAppearance()
+        }
+        
+        beginAppearanceTransition(true, animated: false)
+        endAppearanceTransition()
+    }
+    
+    private func prepareForFirstAppearance() {
+        replaceRefreshControlWithSpyForiOS17Support()
+    }
+
+    private func replaceRefreshControlWithSpyForiOS17Support() {
+        let spyRefreshControl = UIRefreshControlSpy()
+
+        refreshControl?.allTargets.forEach { target in
+            refreshControl?.actions(forTarget: target, forControlEvent: .valueChanged)?.forEach { action in
+                spyRefreshControl.addTarget(target, action: Selector(action), for: .valueChanged)
+            }
+        }
+
+        refreshControl = spyRefreshControl
+    }
+
+    private class UIRefreshControlSpy: UIRefreshControl {
+        private var _isRefreshing = false
+
+        override var isRefreshing: Bool { _isRefreshing }
+
+        override func beginRefreshing() {
+            _isRefreshing = true
+        }
+
+        override func endRefreshing() {
+            _isRefreshing = false
+        }
+    }
+}

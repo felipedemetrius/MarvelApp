@@ -15,7 +15,7 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
 
     var viewModel: FeedViewModel?
     
-    var tableModel = [CharacterCellController]() {
+    public var tableModel = [CharacterCellController]() {
         didSet { tableView.reloadData() }
     }
 

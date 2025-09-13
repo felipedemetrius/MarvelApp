@@ -9,13 +9,13 @@ import Foundation
 import Combine
 import FeatureFeed
 
-final class CharacterViewModel<Image> {
+public final class CharacterViewModel<Image> {
     private var task: ImageDataLoaderTask?
     private let model: Character
     private let imageLoader: ImageDataLoader
     private let imageTransformer: (Data) -> Image?
 
-    init(model: Character, imageLoader: ImageDataLoader, imageTransformer: @escaping (Data) -> Image?) {
+    public init(model: Character, imageLoader: ImageDataLoader, imageTransformer: @escaping (Data) -> Image?) {
         self.model = model
         self.imageLoader = imageLoader
         self.imageTransformer = imageTransformer

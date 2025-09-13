@@ -21,7 +21,7 @@ public final class FeedViewModel {
     }
 
     var onLoadingStateChange = PassthroughSubject<Bool, Never>()
-    var onFeedLoad: (([Character]) -> Void)?
+    public var onFeedLoad: (([Character]) -> Void)?
     var onErrorStateChange = PassthroughSubject<String?, Never>()
 
     func loadFeed() {
