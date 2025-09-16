@@ -5,6 +5,9 @@
       location = "container:MarvelApp.xcodeproj">
    </FileRef>
    <FileRef
+      location = "container:MarvelTargettvOS/MarvelTargettvOS.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "container:MarvelTargetiOS/MarvelTargetiOS.xcodeproj">
    </FileRef>
    <FileRef

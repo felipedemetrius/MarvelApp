@@ -111,6 +111,17 @@
 		02BFD42C2C05600800B9234B /* CharactersMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BFD42B2C05600800B9234B /* CharactersMapperTests.swift */; };
 		02BFD42F2C05633D00B9234B /* CharactersEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BFD42E2C05633D00B9234B /* CharactersEndpointTests.swift */; };
 		02BFD4312C05695800B9234B /* HTTPClientStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BFD4302C05695800B9234B /* HTTPClientStub.swift */; };
+		02C045FA2E78BCC0002BE958 /* MarveltvOSSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C045F12E78BCBF002BE958 /* MarveltvOSSwiftUI.framework */; };
+		02C046082E78BD62002BE958 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C046062E78BD62002BE958 /* FeedView.swift */; };
+		02C0460B2E78BD66002BE958 /* MarveltvOSSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C046092E78BD66002BE958 /* MarveltvOSSwiftUITests.swift */; };
+		02C046482E78BD9E002BE958 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C046472E78BD9A002BE958 /* FeedViewModel.swift */; };
+		02C046492E78BDC2002BE958 /* FeatureFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 020FC92B2E6F440300609CE6 /* FeatureFeed.framework */; };
+		02C0464A2E78BDC2002BE958 /* FeatureFeed.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 020FC92B2E6F440300609CE6 /* FeatureFeed.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		02C046552E78BE8C002BE958 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 02C046532E78BE8C002BE958 /* Localizable.strings */; };
+		02C046582E78BEB0002BE958 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C046572E78BEAD002BE958 /* Localized.swift */; };
+		02C0465F2E78BF72002BE958 /* FeedCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C0465E2E78BF6C002BE958 /* FeedCellView.swift */; };
+		02C046622E78C033002BE958 /* FeedCellState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C046612E78C02E002BE958 /* FeedCellState.swift */; };
+		02C046652E78C7FE002BE958 /* Shimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C046642E78C7FC002BE958 /* Shimmer.swift */; };
 		02CEB7DE2C67EEF000F91309 /* MarveliOSUiKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02CEB7D62C67EEF000F91309 /* MarveliOSUiKit.framework */; };
 		02CEB7E42C67EEF000F91309 /* MarveliOSUiKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 02CEB7D82C67EEF000F91309 /* MarveliOSUiKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -152,6 +163,20 @@
 			remoteInfo = FeatureFeed;
 		};
 		020FC9A82E6F5FD600609CE6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02BFD3E22C0536E300B9234B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 020FC92A2E6F440300609CE6;
+			remoteInfo = FeatureFeed;
+		};
+		02C045FB2E78BCC0002BE958 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02BFD3E22C0536E300B9234B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 02C045F02E78BCBF002BE958;
+			remoteInfo = MarveltvOSSwiftUI;
+		};
+		02C0464B2E78BDC2002BE958 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 02BFD3E22C0536E300B9234B /* Project object */;
 			proxyType = 1;
@@ -210,6 +235,17 @@
 			dstSubfolderSpec = 10;
 			files = (
 				020FC99E2E6F5FBE00609CE6 /* FeatureFeed.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		02C0464D2E78BDC2002BE958 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				02C0464A2E78BDC2002BE958 /* FeatureFeed.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -315,6 +351,17 @@
 		02BFD42B2C05600800B9234B /* CharactersMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersMapperTests.swift; sourceTree = "<group>"; };
 		02BFD42E2C05633D00B9234B /* CharactersEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersEndpointTests.swift; sourceTree = "<group>"; };
 		02BFD4302C05695800B9234B /* HTTPClientStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientStub.swift; sourceTree = "<group>"; };
+		02C045F12E78BCBF002BE958 /* MarveltvOSSwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MarveltvOSSwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		02C045F92E78BCC0002BE958 /* MarveltvOSSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarveltvOSSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		02C046062E78BD62002BE958 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
+		02C046092E78BD66002BE958 /* MarveltvOSSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarveltvOSSwiftUITests.swift; sourceTree = "<group>"; };
+		02C046472E78BD9A002BE958 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
+		02C046542E78BE8C002BE958 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		02C046562E78BE99002BE958 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		02C046572E78BEAD002BE958 /* Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localized.swift; sourceTree = "<group>"; };
+		02C0465E2E78BF6C002BE958 /* FeedCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCellView.swift; sourceTree = "<group>"; };
+		02C046612E78C02E002BE958 /* FeedCellState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCellState.swift; sourceTree = "<group>"; };
+		02C046642E78C7FC002BE958 /* Shimmer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shimmer.swift; sourceTree = "<group>"; };
 		02CEB7D62C67EEF000F91309 /* MarveliOSUiKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MarveliOSUiKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		02CEB7D82C67EEF000F91309 /* MarveliOSUiKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarveliOSUiKit.h; sourceTree = "<group>"; };
 		02CEB7DD2C67EEF000F91309 /* MarveliOSUiKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarveliOSUiKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -351,6 +398,22 @@
 				020FC9902E6F5F2800609CE6 /* APIFeed.framework in Frameworks */,
 				020FC9982E6F5F2800609CE6 /* FeatureFeed.framework in Frameworks */,
 				020FC9942E6F5F2800609CE6 /* CacheFeed.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		02C045EE2E78BCBF002BE958 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02C046492E78BDC2002BE958 /* FeatureFeed.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		02C045F62E78BCC0002BE958 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02C045FA2E78BCC0002BE958 /* MarveltvOSSwiftUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -664,6 +727,8 @@
 				02BFD3F72C0536E400B9234B /* MarvelCoreTests */,
 				02CEB7D72C67EEF000F91309 /* MarveliOSUiKit */,
 				02CEB7E12C67EEF000F91309 /* MarveliOSUiKitTests */,
+				02C046072E78BD62002BE958 /* MarveltvOSSwiftUI */,
+				02C0460A2E78BD66002BE958 /* MarveltvOSSwiftUITests */,
 				02BFD3EC2C0536E300B9234B /* Products */,
 				029857AF2C72346D00E3B73D /* Frameworks */,
 			);
@@ -678,6 +743,8 @@
 				020FC92B2E6F440300609CE6 /* FeatureFeed.framework */,
 				020FC9442E6F504F00609CE6 /* CacheFeed.framework */,
 				020FC9642E6F523200609CE6 /* APIFeed.framework */,
+				02C045F12E78BCBF002BE958 /* MarveltvOSSwiftUI.framework */,
+				02C045F92E78BCC0002BE958 /* MarveltvOSSwiftUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -802,6 +869,68 @@
 			path = Endpoints;
 			sourceTree = "<group>";
 		};
+		02C046072E78BD62002BE958 /* MarveltvOSSwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				02C046502E78BE5E002BE958 /* Strings */,
+				02C0464E2E78BE48002BE958 /* Views */,
+			);
+			path = MarveltvOSSwiftUI;
+			sourceTree = "<group>";
+		};
+		02C0460A2E78BD66002BE958 /* MarveltvOSSwiftUITests */ = {
+			isa = PBXGroup;
+			children = (
+				02C046092E78BD66002BE958 /* MarveltvOSSwiftUITests.swift */,
+			);
+			path = MarveltvOSSwiftUITests;
+			sourceTree = "<group>";
+		};
+		02C0464E2E78BE48002BE958 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				02C0464F2E78BE4F002BE958 /* Feed */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		02C0464F2E78BE4F002BE958 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				02C046632E78C7F6002BE958 /* Helpers */,
+				02C046602E78C026002BE958 /* Cell */,
+				02C046472E78BD9A002BE958 /* FeedViewModel.swift */,
+				02C046062E78BD62002BE958 /* FeedView.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		02C046502E78BE5E002BE958 /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				02C046572E78BEAD002BE958 /* Localized.swift */,
+				02C046532E78BE8C002BE958 /* Localizable.strings */,
+			);
+			path = Strings;
+			sourceTree = "<group>";
+		};
+		02C046602E78C026002BE958 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				02C046612E78C02E002BE958 /* FeedCellState.swift */,
+				02C0465E2E78BF6C002BE958 /* FeedCellView.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		02C046632E78C7F6002BE958 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				02C046642E78C7FC002BE958 /* Shimmer.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		02CEB7D72C67EEF000F91309 /* MarveliOSUiKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -841,6 +970,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		020FC95F2E6F523200609CE6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		02C045EC2E78BCBF002BE958 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -943,6 +1079,48 @@
 			productReference = 02BFD3F32C0536E400B9234B /* MarvelCoreTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		02C045F02E78BCBF002BE958 /* MarveltvOSSwiftUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 02C046042E78BCC0002BE958 /* Build configuration list for PBXNativeTarget "MarveltvOSSwiftUI" */;
+			buildPhases = (
+				02C045EC2E78BCBF002BE958 /* Headers */,
+				02C045ED2E78BCBF002BE958 /* Sources */,
+				02C045EE2E78BCBF002BE958 /* Frameworks */,
+				02C045EF2E78BCBF002BE958 /* Resources */,
+				02C0464D2E78BDC2002BE958 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				02C0464C2E78BDC2002BE958 /* PBXTargetDependency */,
+			);
+			name = MarveltvOSSwiftUI;
+			packageProductDependencies = (
+			);
+			productName = MarveltvOSSwiftUI;
+			productReference = 02C045F12E78BCBF002BE958 /* MarveltvOSSwiftUI.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		02C045F82E78BCC0002BE958 /* MarveltvOSSwiftUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 02C046052E78BCC0002BE958 /* Build configuration list for PBXNativeTarget "MarveltvOSSwiftUITests" */;
+			buildPhases = (
+				02C045F52E78BCC0002BE958 /* Sources */,
+				02C045F62E78BCC0002BE958 /* Frameworks */,
+				02C045F72E78BCC0002BE958 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				02C045FC2E78BCC0002BE958 /* PBXTargetDependency */,
+			);
+			name = MarveltvOSSwiftUITests;
+			packageProductDependencies = (
+			);
+			productName = MarveltvOSSwiftUITests;
+			productReference = 02C045F92E78BCC0002BE958 /* MarveltvOSSwiftUITests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		02CEB7D52C67EEF000F91309 /* MarveliOSUiKit */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 02CEB7E92C67EEF000F91309 /* Build configuration list for PBXNativeTarget "MarveliOSUiKit" */;
@@ -1003,6 +1181,12 @@
 					02BFD3F22C0536E400B9234B = {
 						CreatedOnToolsVersion = 15.4;
 					};
+					02C045F02E78BCBF002BE958 = {
+						CreatedOnToolsVersion = 16.3;
+					};
+					02C045F82E78BCC0002BE958 = {
+						CreatedOnToolsVersion = 16.3;
+					};
 					02CEB7D52C67EEF000F91309 = {
 						CreatedOnToolsVersion = 15.2;
 						LastSwiftMigration = 1520;
@@ -1032,6 +1216,8 @@
 				020FC92A2E6F440300609CE6 /* FeatureFeed */,
 				020FC9432E6F504F00609CE6 /* CacheFeed */,
 				020FC9632E6F523200609CE6 /* APIFeed */,
+				02C045F02E78BCBF002BE958 /* MarveltvOSSwiftUI */,
+				02C045F82E78BCC0002BE958 /* MarveltvOSSwiftUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -1059,6 +1245,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		02BFD3F12C0536E400B9234B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		02C045EF2E78BCBF002BE958 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02C046552E78BE8C002BE958 /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		02C045F72E78BCC0002BE958 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1186,6 +1387,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		02C045ED2E78BCBF002BE958 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02C0465F2E78BF72002BE958 /* FeedCellView.swift in Sources */,
+				02C046652E78C7FE002BE958 /* Shimmer.swift in Sources */,
+				02C046482E78BD9E002BE958 /* FeedViewModel.swift in Sources */,
+				02C046582E78BEB0002BE958 /* Localized.swift in Sources */,
+				02C046622E78C033002BE958 /* FeedCellState.swift in Sources */,
+				02C046082E78BD62002BE958 /* FeedView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		02C045F52E78BCC0002BE958 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02C0460B2E78BD66002BE958 /* MarveltvOSSwiftUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		02CEB7D22C67EEF000F91309 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1249,6 +1471,16 @@
 			target = 020FC92A2E6F440300609CE6 /* FeatureFeed */;
 			targetProxy = 020FC9A82E6F5FD600609CE6 /* PBXContainerItemProxy */;
 		};
+		02C045FC2E78BCC0002BE958 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 02C045F02E78BCBF002BE958 /* MarveltvOSSwiftUI */;
+			targetProxy = 02C045FB2E78BCC0002BE958 /* PBXContainerItemProxy */;
+		};
+		02C0464C2E78BDC2002BE958 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 020FC92A2E6F440300609CE6 /* FeatureFeed */;
+			targetProxy = 02C0464B2E78BDC2002BE958 /* PBXContainerItemProxy */;
+		};
 		02CEB7E02C67EEF000F91309 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 02CEB7D52C67EEF000F91309 /* MarveliOSUiKit */;
@@ -1262,6 +1494,15 @@
 			children = (
 				02382E372C7278F7004D7B54 /* en */,
 				02382E392C7278F9004D7B54 /* pt-BR */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		02C046532E78BE8C002BE958 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				02C046542E78BE8C002BE958 /* pt-BR */,
+				02C046562E78BE99002BE958 /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1301,12 +1542,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = auto;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_MODULE = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = "1,2,3,7";
 				XROS_DEPLOYMENT_TARGET = 2.4;
 			};
 			name = Debug;
@@ -1343,12 +1585,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = auto;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_MODULE = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = "1,2,3,7";
 				XROS_DEPLOYMENT_TARGET = 2.4;
 			};
 			name = Release;
@@ -1385,12 +1628,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = auto;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_MODULE = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = "1,2,3,7";
 				XROS_DEPLOYMENT_TARGET = 2.4;
 			};
 			name = Debug;
@@ -1427,12 +1671,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = auto;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_MODULE = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = "1,2,3,7";
 				XROS_DEPLOYMENT_TARGET = 2.4;
 			};
 			name = Release;
@@ -1469,12 +1714,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = auto;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_MODULE = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = "1,2,3,7";
 				XROS_DEPLOYMENT_TARGET = 2.4;
 			};
 			name = Debug;
@@ -1511,12 +1757,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = auto;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_MODULE = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = "1,2,3,7";
 				XROS_DEPLOYMENT_TARGET = 2.4;
 			};
 			name = Release;
@@ -1675,6 +1922,114 @@
 			};
 			name = Release;
 		};
+		02C046002E78BCC0002BE958 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.felipesilva.MarveltvOSSwiftUI;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_MODULE = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 17.6;
+			};
+			name = Debug;
+		};
+		02C046012E78BCC0002BE958 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.felipesilva.MarveltvOSSwiftUI;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_MODULE = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 17.6;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		02C046022E78BCC0002BE958 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.felipesilva.MarveltvOSSwiftUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 18.4;
+			};
+			name = Debug;
+		};
+		02C046032E78BCC0002BE958 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.felipesilva.MarveltvOSSwiftUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 18.4;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		02CEB7E52C67EEF000F91309 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1826,6 +2181,24 @@
 			buildConfigurations = (
 				02BFD4012C0536E400B9234B /* Debug */,
 				02BFD4022C0536E400B9234B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		02C046042E78BCC0002BE958 /* Build configuration list for PBXNativeTarget "MarveltvOSSwiftUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				02C046002E78BCC0002BE958 /* Debug */,
+				02C046012E78BCC0002BE958 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		02C046052E78BCC0002BE958 /* Build configuration list for PBXNativeTarget "MarveltvOSSwiftUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				02C046022E78BCC0002BE958 /* Debug */,
+				02C046032E78BCC0002BE958 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
