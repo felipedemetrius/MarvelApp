@@ -48,6 +48,9 @@ public struct FeedCellView<T>: View where T: FeedCellStateProtocol {
         }.onAppear(perform: {
             state.loadImage()
         })
+        .onDisappear(perform: {
+            state.cancelImageDataLoad()
+        })
         .focusSection()
     }
 }
