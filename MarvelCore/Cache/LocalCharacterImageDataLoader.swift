@@ -52,23 +52,40 @@ extension LocalCharacterImageDataLoader: CharacterImageDataLoader {
 extension LocalCharacterImageDataLoader: ImageDataLoader {
         
     private final class TaskWrapper: ImageDataLoaderTask {
-
-        init() {}
-
-        func cancel() {}
+        private var completion: ((ImageDataLoader.Result) -> Void)?
+        
+        init(_ completion: @escaping (ImageDataLoader.Result) -> Void) {
+            self.completion = completion
+        }
+        
+        func complete(with result: ImageDataLoader.Result) {
+            completion?(result)
+        }
+        
+        func cancel() {
+            preventFurtherCompletions()
+        }
+        
+        private func preventFurtherCompletions() {
+            completion = nil
+        }
     }
 
     
     public func loadImageData(from url: URLRequest, completion: @escaping (ImageDataLoader.Result) -> Void) -> ImageDataLoaderTask {
+        let task = TaskWrapper(completion)
         do {
             if let imageData = try store.retrieve(dataForURL: url.url!) {
                 completion(.success(imageData))
+                task.complete(with: .success(imageData))
             } else {
                 completion(.failure(LoadError.notFound))
+                task.complete(with: .failure(LoadError.notFound))
             }
         } catch {
             completion(.failure(LoadError.failed))
+            task.complete(with: .failure(LoadError.failed))
         }
-        return TaskWrapper()
+        return task
     }
 }
