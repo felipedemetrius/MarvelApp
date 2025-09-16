@@ -29,7 +29,6 @@ public struct FeedView<T>: View where T: FeedViewModelProtocol {
                         Button {
                             print("model \(char.character)")
                         } label: {
-                            
                             FeedCellView(state: char)
                         }
                         .buttonStyle(.borderless)

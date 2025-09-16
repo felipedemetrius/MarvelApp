@@ -12,7 +12,6 @@ public struct FeedCellView<T>: View where T: FeedCellStateProtocol {
     
     public init(state: T) {
         self.state = state
-        state.loadImage()
     }
     
     public var body: some View {
@@ -46,6 +45,9 @@ public struct FeedCellView<T>: View where T: FeedCellStateProtocol {
             }
             Text(state.character.name)
                 .font(.system(.largeTitle))
-        }.focusSection()
+        }.onAppear(perform: {
+            state.loadImage()
+        })
+        .focusSection()
     }
 }

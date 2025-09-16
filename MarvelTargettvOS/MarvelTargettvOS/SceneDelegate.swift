@@ -70,13 +70,35 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func configureWindow() {
 
-        let viewModel = FeedViewModel(feedLoader: remoteFeedLoader, imageLoader: remoteImageLoader)
-        let view = FeedView(viewModel: viewModel)
-        
+        let view = FeedUIComposer.feedComposedWith(
+            feedLoader: makeRemoteFeedLoaderWithLocalFallback,
+            imageLoader: makeLocalImageLoaderWithRemoteFallback
+        )
+
         let navigationController = UINavigationController(rootViewController: view.viewController)
 
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
+    }
+
+    private func makeRemoteFeedLoaderWithLocalFallback() -> CharacterLoader.Publisher {
+        return remoteFeedLoader
+            .loadPublisher()
+            .caching(to: localFeedLoader)
+            .fallback(to: localFeedLoader.loadPublisher)
+    }
+
+    private func makeLocalImageLoaderWithRemoteFallback(url: URLRequest) -> ImageDataLoader.Publisher {
+        let remoteImageLoader = RemoteCharacterImageDataLoader(client: httpClient)
+        let localImageLoader = LocalCharacterImageDataLoader(store: store)
+
+        return localImageLoader
+            .loadImageDataPublisher(from: url)
+            .fallback(to: {
+                remoteImageLoader
+                    .loadImageDataPublisher(from: url)
+                    .caching(to: localImageLoader, using: url.url!)
+            })
     }
 
 }

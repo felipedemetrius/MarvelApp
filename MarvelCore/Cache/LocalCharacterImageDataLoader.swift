@@ -63,6 +63,8 @@ extension LocalCharacterImageDataLoader: ImageDataLoader {
         do {
             if let imageData = try store.retrieve(dataForURL: url.url!) {
                 completion(.success(imageData))
+            } else {
+                completion(.failure(LoadError.notFound))
             }
         } catch {
             completion(.failure(LoadError.failed))
